@@ -11,12 +11,12 @@ prog def prep_f_test
   
   global offset 5
   replace year = year + $offset
-  merge 1:1 con_id_joint year using $tmp/adr_mining_clean
+  merge 1:1 con_id_joint year using $mdata/adr_mining_clean
   keep if _merge == 3
   drop _merge
   
   /* match the ECI data */
-  merge 1:1 con_id_joint year using $tmp/eci_lags
+  merge 1:1 con_id_joint year using $mdata/eci_lags
   drop if _merge == 2
   drop _merge
   
@@ -52,7 +52,7 @@ prog def prep_f_test
   label var pshock2 "Price shock (t==2 only)"
   
   /* bring in control variables */
-  merge m:1 con_id_joint using $tmp/con_id_joint_controls
+  merge m:1 con_id_joint using $mdata/con_id_joint_controls
   drop if _merge == 2
   drop _merge
   
