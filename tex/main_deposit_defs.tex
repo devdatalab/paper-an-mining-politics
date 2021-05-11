@@ -1,0 +1,24 @@
+\setlength{\linewidth}{.1cm} \begin{center}
+\newcommand{\contents}{\begin{tabular}{l*{6}{c}}
+\hline\hline
+ & \multicolumn{3}{c}{\underline{Exact Deposit Locations}} & \multicolumn{3}{c}{\underline{Deposits Only}} \\ 
+%PYTHON_HEADER
+                    &         (1)   &         (2)   &         (3)   &         (4)   &         (5)   &         (6)   \\
+\hline
+Price shock$_{-6,-1}$&       0.131***&       0.107** &       0.118** &       0.040** &       0.038** &       0.051*  \\
+                    &     (0.039)   &     (0.041)   &     (0.056)   &     (0.016)   &     (0.016)   &     (0.028)   \\
+\hline State-Year F.E. & Yes & Yes & Yes & Yes & Yes & Yes \\ 
+District   F.E.     & No  & Yes & No & No  & Yes & No \\ 
+Constituency   F.E. & No  & No  & Yes & No  & No  & Yes \\ 
+\hline 
+Mean Dep. Var. & 0.33 & 0.33 & 0.32 & 0.30 & 0.30 & 0.30 \\ 
+%PYTHON_FOOTER
+\hline
+N                   &         628   &         625   &         484   &        3280   &        3270   &        1905   \\
+r2                  &        0.18   &        0.39   &        0.69   &        0.13   &        0.25   &        0.66   \\
+\hline
+\multicolumn{7}{p{\linewidth}}{$^{*}p<0.10, ^{**}p<0.05, ^{***}p<0.01$} \\
+\multicolumn{7}{p{\linewidth}}{\footnotesize \tablenote}
+\end{tabular} }
+\setbox0=\hbox{\contents}
+\setlength{\linewidth}{\wd0-2\tabcolsep-.25em} \contents \end{center}

@@ -1,0 +1,123 @@
+%Summary Stats
+ \begin{table}[H]\caption{Summary statistics}
+   \small \input{\miningpath/mining_sum_stats}
+   \label{tab:sumstat}
+   \newline The table presents mean values for all variables used. The
+   final two columns show coefficient and standard errors from a
+   regression of the row variable on a forward-looking price shock
+   (\textit{i.e.}, the shock that occurs \textit{after} the value is
+   measured). The estimating equation is
+   $Y_{c,d,s,t} = \beta_0 + \beta_1 *
+   PriceShock_{c,d,s,t+1,t+6}+\gamma_{s,t} + \nu_{d}+\epsilon_{c,d,s,t}$,
+   where $t$ is the first period where a given outcome can be observed.
+   \input{controls_etc}
+ \end{table}
+
+%%%%%%%%%%%%%%%%%%%%
+%%PRICE SHOCK TABLES
+%%%%%%%%%%%%%%%%%%%%
+
+%%%% ADR 
+
+%% Winner Any Crim
+\newpage
+\begin{table}[H]\caption{Effect of mineral price shocks on winning candidate criminality}
+  \newcommand{\tablenote}{The table estimates the impact of a local
+    mineral price shock on the criminality of the local elected
+    politician. \input{pshock_def} The dependent variable is an
+    indicator that takes the value one if the local election winner is
+    facing criminal charges. Column 1 estimates Equation~\ref{eq:main}
+    on the full sample with state*year fixed effects. Columns 2 and 3
+    respectively add district and constituency fixed effects. Sample
+    size falls because constituency boundaries were redefined in 2007
+    and there is only one observation per constituency for most
+    predelimitation boundaries. Column 4 shows the marginal effect from
+    a probit estimation of a similar specification to that in Column
+    1. \input{controls_etc} } \small \input{\miningpath/table_winner}
+  \label{tab:winner_crim}
+\end{table}
+
+\newpage
+\begin{table}[H]\caption{Effect of mineral price shocks on other winning candidate
+    characteristics}
+  \label{tab:ed_age}
+  \newcommand{\tablenote}{ This table estimates the impact of a
+    local mineral price shock on characteristics of the local elected
+    leader (as in Table \ref{tab:winner_crim}). \input{pshock_def} The dependent
+    variable in the five columns is as follows: (1) an indicator
+    that takes the value of one if the winner is a member of the
+    Bharatiya Janata Party (BJP); (2) an indicator that takes the value one if he/she is a
+    member of the Indian National Congress (INC) party; (3) an
+    indicator that takes the value one if the winner has completed
+    high school; (4) the age of the winning candidate; (5) the log
+    of the net assets of the winning candidate.
+    \input{controls_etc_dfe}  }
+  \input{\miningpath/table_ed_age}
+\end{table}
+
+\newpage
+\begin{table}[H]\caption{Effect of mineral price shocks on winning candidate
+    criminality \cnewline by type of crime} \newcommand{\tablenote}{
+    The table estimates the impact of a local mineral price shock on
+    the criminality of the local elected leader, focusing on specific
+    types of crime. \input{pshock_def} In Column 1, the dependent
+    variable is an indicator that takes the value one if the local
+    election winner is facing charges for a violent crime, in which we
+    include actual or attempted assault, armed robbery, homicide,
+    kidnapping and sexual assault. In Column 2, we use an indicator
+    that takes the value one if the election winner is charged with a
+    non-violent crime, which is the set of crimes not used in
+    Column 1. Column 3 estimates the impact on election winners being
+    charged with corruption-related crimes (which include theft from
+    government, manipulation of elections, and illegal influence over
+    actions of public servants). Column 4 estimates the impact on
+    election winners being charged with crimes other than those
+    related to corruption. \input{controls_etc_dfe}} \small
+  \input{\miningpath/table_winner_violence}
+  \label{tab:winner_violence}
+\end{table}
+
+\newpage
+\begin{table}[H]\caption{Effect of mineral price shocks on election competitiveness}
+  \newcommand{\tablenote}{The table estimates the impact of a local
+    mineral price shock on several indicators of electoral
+    competitiveness. All columns estimate Equation~\ref{eq:main} at the
+    constituency-election year level. \input{pshock_def} In Columns 1
+    and 2, the dependent variable is an indicator that takes the value
+    one if the local incumbent is re-elected. In Columns 3 and 4, the
+    dependent variable is constituency level turnout. In Columns 5 and
+    6, the dependent variable is the effective number of
+    parties. Election data is available from 1990 to the
+    present. Results are presented separately for elections for the full
+    data from
+    1990-2013 and from 2003-2013, a period comparable to other analyses
+    in the paper. \input{controls_etc_dfe}} \footnotesize
+  \input{\miningpath/table_eci}
+  \label{tab:eci}
+\end{table}
+
+\newpage
+\begin{table}[H]\caption{Effect of mineral price shocks on candidate asset
+    growth and criminal activity} \newcommand{\tablenote}{The table
+    shows estimates of the impact of mineral wealth shocks on asset
+    growth of elected leaders, and on new criminal charges against
+    them.  The dependent variable in columns 1-3 is the change in a
+    candidate's log net assets over a single electoral term. The price
+    shock is the unanticipated change in mineral wealth in that
+    electoral term, defined as the change in the global prices of the
+    basket of mineral in each constituency, measured from the first
+    year after the politician is elected to the end of the electoral
+    term. Column 1 estimates the regression on elected officials
+    only. In Column 2, the sample includes winners and runners up from
+    the first election, and the price shock is interacted with a
+    dummy variable indicating the election winner.  Column 3 is analogous to column 1, but adds an
+    interaction with politicians' criminal status in the baseline
+    period, to test whether politicians already facing charges
+    systematically gain more assets in response to a positive mineral
+    wealth shock. Columns 4 and 5 run specifications comparable to
+    Columns 1 and 2, where the dependent variable is an indicator for
+    whether the politician is facing more criminal charges at the end
+    of the electoral term than at the beginning. \input{controls_etc}} \small
+  \input{\miningpath/table_ts}
+  \label{tab:ts}
+\end{table}

@@ -1,0 +1,31 @@
+\setlength{\linewidth}{.1cm} \begin{center}
+\newcommand{\contents}{\begin{tabular}{l*{4}{c}}
+\hline\hline
+ & \multicolumn{2}{c}{\underline{Change in Assets}} & \multicolumn{2}{|c}{\underline{Change in Crime}} \\ 
+%PYTHON_HEADER
+                    &         (1)   &         (2)   &         (3)   &         (4)   \\
+\hline
+Price shock$_{+1,+5}$&       0.267***&      -0.045   &       0.216***&      -0.045   \\
+                    &     (0.101)   &     (0.165)   &     (0.062)   &     (0.087)   \\
+Price shock$_{+1,+5}$ * Winner&               &       0.302*  &               &       0.244** \\
+                    &               &     (0.168)   &               &     (0.100)   \\
+Winner              &               &      -0.142   &               &      -0.420** \\
+                    &               &     (0.297)   &               &     (0.201)   \\
+Price shock$_{-5,-1}$ (lagged)&       0.095   &       0.191** &       0.023   &      -0.010   \\
+                    &     (0.103)   &     (0.092)   &     (0.058)   &     (0.070)   \\
+Price shock$_{-5,-1}$ (lagged) * Winner&               &      -0.073   &               &       0.021   \\
+                    &               &     (0.119)   &               &     (0.081)   \\
+\hline
+State-Year F.E. & Yes & Yes & Yes & Yes \\ 
+\hline 
+Mean Dep. Var. & 1.02 & 0.98 & 0.18 & 0.20 \\ 
+%PYTHON_FOOTER
+\hline
+N                   &         448   &         696   &         364   &         629   \\
+r2                  &        0.40   &        0.33   &        0.23   &        0.18   \\
+\hline
+\multicolumn{5}{p{\linewidth}}{$^{*}p<0.10, ^{**}p<0.05, ^{***}p<0.01$} \\
+\multicolumn{5}{p{\linewidth}}{\footnotesize \tablenote}
+\end{tabular} }
+\setbox0=\hbox{\contents}
+\setlength{\linewidth}{\wd0-2\tabcolsep-.25em} \contents \end{center}

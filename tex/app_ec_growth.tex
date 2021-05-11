@@ -1,0 +1,31 @@
+\setlength{\linewidth}{.1cm} \begin{center}
+\newcommand{\contents}{\begin{tabular}{l*{5}{c}}
+\hline\hline
+ & \underline{Crim Winner} & \multicolumn{2}{c}{\underline{Change in Assets}} & \multicolumn{2}{c}{\underline{Change in Crime}} \\ 
+%PYTHON_HEADER
+                    &         (1)   &         (2)   &         (3)   &         (4)   &         (5)   \\
+\hline
+Pre-Election Growth &      -0.003   &               &               &               &               \\
+                    &     (0.016)   &               &               &               &               \\
+Growth in Electoral Term&               &       0.108   &       0.077   &      -0.045   &       0.224***\\
+                    &               &     (0.211)   &     (0.136)   &     (0.046)   &     (0.071)   \\
+Winner              &               &               &       0.190   &               &       0.031   \\
+                    &               &               &     (0.128)   &               &     (0.056)   \\
+Winner * Growth in Electoral Term&               &               &       0.029   &               &      -0.245***\\
+                    &               &               &     (0.207)   &               &     (0.072)   \\
+Constant            &       0.339***&       1.178***&       1.011***&       0.224***&       0.198***\\
+                    &     (0.009)   &     (0.085)   &     (0.104)   &     (0.030)   &     (0.047)   \\
+\hline
+State-Year F.E. & Yes & Yes & Yes & Yes & Yes \\ 
+\hline 
+Mean Dep. Var. & 0.34 & 1.21 & 1.17 & 0.21 & 0.25  \\ 
+%PYTHON_FOOTER
+\hline
+N                   &        4427   &         213   &         335   &         219   &         349   \\
+r2                  &        0.10   &        0.12   &        0.09   &        0.13   &        0.14   \\
+\hline
+\multicolumn{6}{p{\linewidth}}{$^{*}p<0.10, ^{**}p<0.05, ^{***}p<0.01$} \\
+\multicolumn{6}{p{\linewidth}}{\footnotesize \tablenote}
+\end{tabular} }
+\setbox0=\hbox{\contents}
+\setlength{\linewidth}{\wd0-2\tabcolsep-.25em} \contents \end{center}

@@ -1,0 +1,413 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% DIFFERENT CRIME SUMSTATS %%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{table}[H]\caption{Criminal Charges Against Politicians
+    Contesting Election: \cnewline Summary Statistics}
+  \begin{center}
+  \input{\miningpath/crime_breakdown}
+  \end{center}
+  \label{tab:pol_crimes}
+  
+  \footnotesize{The table shows the distribution of charges faced by
+    politicians seeking election in India. The sample period is
+    2003--2017. 2003 is the first year that candidates were required
+    to file affidavits showing criminal charges.  Corruption is
+    defined as theft from a government office, illegally attempting to
+    influence a public servant or an election-related crime. Violent
+    crime includes actual or attempted assault, armed robbery,
+    homicide, kidnapping or sexual assault.}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% CON FIXED EFFECT ROBUSTNESS %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{table}[H]\caption{Robustness of main results to constituency
+    fixed effects}
+  \vspace{1cm}
+  \small
+  \textbf{Panel A: Effect of Price Shocks on Winning Candidate Characteristics}
+  \input{\miningpath/app_ed_age_con_fe}
+  \newline
+  \small \textbf{Panel B: Effect of Price Shock on Criminality by Type
+    of Crime}
+  \input{\miningpath/app_winner_violence_con_fe}
+  \newline
+  \small \textbf{Panel C: Effect of Price Shock on Election Competitiveness}
+  \input{\miningpath/app_eci_con_fe}
+
+  \label{tab:con_fe}
+  \footnotesize{These three panels shows the robustness of Tables
+    \ref{tab:ed_age}, \ref{tab:winner_violence}, and \ref{tab:eci} in
+    the body of the paper to the inclusion of constituency fixed
+    effects. All rows and columns are identical to those tables in the
+    body of the paper, but include constituency fixed effects.} \small
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Mean Candidate Criminality %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{table}[H]\caption{Effect of mineral price shocks on non-winner criminality}
+  \newcommand{\tablenote}{The table estimates the impact of a local
+    mineral price shock on the criminality of candidates who contested
+    election but did not win. Criminality is a candidate-level
+    indicator that takes the value one if the candidate is facing
+    criminal charges. The dependent variable in Columns 1--3 is the
+    mean of this indicator across all candidates contesting election
+    in each constituency-year. The dependent variable in Columns 4--6
+    is the criminality of the second-place candidate in each
+    constituency-year.  \input{pshock_def} Columns 1 and 4 estimate
+    Equation~\ref{eq:main} on the full sample with state*year fixed
+    effects. Columns 2 and 5 add district fixed effects and Columns 3
+    and 6 add constituency fixed effects.  \input{controls_etc}}
+  \small \input{\miningpath/mean_crim}
+  \label{tab:app_mean_crim}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+%% LAGGED PRICE SHOCKS %%
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+\begin{table}[H]\caption{Effect of mineral price shocks on candidate asset
+    growth and criminal activity \cnewline Robustness to lagged
+    price shocks}
+  \label{tab:app_ts_lag}
+  \newcommand{\tablenote}{The table shows estimates of the impact
+    of mineral wealth shocks on asset growth of elected leaders
+    and on new criminal charges against them. Results are analogous
+    to those in Table~\ref{tab:ts}, but with the inclusion of lagged
+    price shocks.  The dependent variable in columns 1--2 is the change in a
+    candidate's log net assets over a single electoral term. The price
+    shock is the unanticipated change in mineral wealth in that
+    electoral term, defined as the change in the global prices of the
+    basket of mineral in each constituency, measured from the first
+    year after the politician is elected to the end of the electoral
+    term. Column 1 estimates the regression on elected officials
+    only. In Column 2, the sample includes winners and runners up from
+    the first election, and the price shock is interacted with a
+    dummy variable indicating the election winner. Columns 3 and 4 run specifications comparable to
+    Columns 1 and 2, where the dependent variable is an indicator for
+    whether the politician is facing more criminal charges at the end
+    of the electoral term than at the beginning. \input{controls_etc}}
+  \input{\miningpath/app_ts_lag}
+\end{table}
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% EMPLOYMENT GROWTH / BARTIK SHOCKS %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{table}[H]\caption{Effect of employment shocks on candidate
+    selection and behavior}
+  \vspace{1cm}
+  \small
+  \textbf{Panel A: Constituency-Level Non-Farm Employment Growth}
+  \footnotesize \input{\miningpath/app_ec_growth} \newline
+
+  \newcommand{\tablenote}{The table replicates the main results of the
+    paper using shocks to non-farm sector employment instead of
+    mineral wealth shocks. The independent variable in Panel A is
+    constituency-level non-farm employment growth; in Panel B, it is
+    \textit{predicted} non-farm employment growth from a Bartik
+    specification. Column 1 shows a regression of a criminal winner
+    indicator on employment growth in the period before the
+    election. Columns 2 and 3 show regressions of the change in
+    candidate assets on employment growth during the candidate's term
+    in office. Columns 4 and 5 show regressions of an indicator that
+    takes the value one if a candidate has accumulated additional
+    criminal charges during the electoral term, on employment growth
+    during the candidate's term in office. Columns 2 and 4 are
+    restricted to sitting MLAs (i.e. election winners) only; Columns 3
+    and 5 include runners-up in the last election as a control
+    group. All regressions include state-year fixed effects and the
+    standard set of constituency controls. Standard errors are robust
+    and clustered at the district level.}
+  \small \textbf{Panel B: Bartik-Predicted Constituency-Level Non-Farm Employment Growth}
+  \footnotesize \input{\miningpath/app_ec_growth_bartik}
+  \label{tab:app_ec_growth_bartik}
+\end{table}
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% RAINFALL SHOCKS ON ALL OUTCOMES %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{table}[H]\caption{Effect of rainfall shocks on candidate
+    selection and behavior}
+  \newcommand{\tablenote}{The table replicates the main results of the
+    paper using precipitation shocks instead of mineral wealth shocks.
+    Column 1 shows a regression of a criminal winner indicator on
+    rainfall in the year before the election. Column 2 uses average
+    rainfall in the five years before the election.  Columns 3 and 4
+    show regressions of the change in candidate assets on average
+    rainfall during the candidate's term in office. Columns 5 and 6
+    show regressions of an indicator that takes the value one if a
+    candidate has accumulated additional criminal charges during the
+    electoral term, on average rainfall during the candidate's term in
+    office. Columns 3 and 5 are restricted to sitting MLAs
+    (i.e. election winners) only; Columns 4 and 6 include runners-up
+    in the last election as a control group.  Rainfall in each year is
+    measured as total rainfall in the month of monsoon arrival.  All
+    regressions include state-year fixed effects and the standard set
+    of constituency controls. Standard errors are robust and clustered
+    at the district level.
+  }  \small
+  \input{\miningpath/app_precip}
+  \label{tab:app_precip}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%
+%% ROBUSTNESS TABLES %%
+%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\begin{table}[H]\caption{Effect of mineral price shocks on winning candidate
+    criminality \cnewline
+    Alternate deposit definitions}
+  \label{tab:app_deps_only}
+  \newcommand{\tablenote}{ This table estimates the impact of a
+    local mineral price shock on the criminality of the local
+    elected leader, with specifications parallel to those in Table
+    \ref{tab:winner_crim}. The price shock variable is a weighted
+    sum of global price shocks to the minerals present in a
+    constituency. The dependent variable is an indicator that takes
+    the value one if the local election winner is facing criminal
+    charges.  Columns 1 through 3 define price shocks using mineral
+    deposits strictly within constituency boundaries, under
+    different fixed effect specifications. In contrast,
+    Table~\ref{tab:winner_crim} weights price shocks using
+    proximity to deposits that are close to constituencies.
+    Columns 4 through 6 weight price shocks with the number of
+    mineral deposits in a constituency, irrespective of whether
+    production is reported in that constituency, under different
+    fixed effect specifications. In contrast,
+    Table~\ref{tab:winner_crim} uses pre-sample mineral output
+    values as weights.  Sample size is lower than Table
+    \ref{tab:winner_crim} as some constituencies are close to
+    deposits but do not contain deposits. \input{controls_etc}}
+  \input{\miningpath/main_deposit_defs}
+\end{table}
+
+\newpage
+\begin{landscape}
+  \begin{table}[H]\caption{Effect of price shocks on winning candidate
+      criminality \cnewline Alternate price shock definitions}
+    \label{tab:app_alt_pshock_regs}
+    \newcommand{\tablenote}{ This table estimates the impact of a
+      local mineral price shock on the criminality of the local
+      elected leader, under alternate price shock
+      definitions. \input{pshock_def} The dependent variable is an
+      indicator that takes the value one if the local election winner
+      is facing criminal charges. Column 1 weights mineral deposits
+      based on baseline district-level mineral output measured from 1990--2003,
+      instead of 1990--2013. Column 2 defines the price shock from 5
+      years before the election date to the present date (as opposed
+      to Table \ref{tab:winner_crim} which uses 6 years before to 1
+      year before). Column 3, 4 and 5 define mineral constituencies as
+      those with production of at least (3) \$1 in any one year;
+      \$50,000 in one year; or (5) \$200,000 in any year. In
+      Table~\ref{tab:winner_crim}, the threshold is \$100,000. Column
+      6 presents the main specification from
+      Table~\ref{tab:winner_crim}, with standard errors clustered at
+      the state level. Column 7 shows estimates from a placebo
+      specification, where the treatment variable is the change in
+      value of mineral deposits in constituencies that report zero
+      production, i.e. constituencies with unproductive mineral
+      deposits. \input{controls_etc} }
+    \input{\miningpath/app_alt_pshock_regs}
+  \end{table}
+\end{landscape}
+
+\newpage
+\begin{landscape}
+  \begin{table}[H]\caption{Effect of mineral price shocks on candidate asset
+      growth and criminal activity \cnewline Alternate
+      price shock definitions}
+    \label{tab:app_ts_robust}
+    \newcommand{\tablenote}{ The table shows estimates of the impact
+      of mineral wealth shocks on asset growth of elected leaders,
+      and on new criminal charges against them. Results are analogous
+      to those in Table~\ref{tab:ts}, but with alternate definitions
+      of price shocks.  The dependent variable in columns 1, 3, 5 and
+      7 is the change in a candidate's log net assets over a single
+      electoral term. The dependent variable in columns 2, 4, 6 and 8
+      is an indicator for whether the politician is facing more
+      criminal charges at the end of the electoral term than at the
+      beginning The price shock is the unanticipated change in
+      mineral wealth in that electoral term, defined as the change in
+      the global prices of the basket of mineral in each
+      constituency, measured from the first year after the politician
+      is elected to the end of the electoral term.  Columns 1 and 2
+      show results based strictly on mineral deposits, ignoring
+      production data. Columns 3 and 4 define production using all
+      years of data. Columns 5 and 6 define mineral constituencies at
+      the lower production threshold, and Columns 7 and 8 do so at
+      the higher production threshold.  \input{controls_etc_dfe} }
+    \input{\miningpath/app_ts_robust}
+  \end{table}
+\end{landscape}
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+%% SPATIAL SPILLOVERS %%
+%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\begin{table}[H]\caption{Effect of mineral price shocks on winning
+    candidate criminality \cnewline Spatial Spillovers}
+  \newcommand{\tablenote}{The table estimates the impact of local
+    mineral price shocks on the criminality elected politicians in
+    neighboring constituencies.  The dependent variable is the share
+    of neighboring constituencies in which the election winner faces
+    criminal charges.  The price shock is the average price shock in
+    the neighboring constituencies. The row marked ``Price Shock to
+    Neighbors'' is the price shock in the reference constituency.  In
+    both cases, the price shock is a change in global mineral prices,
+    weighted by constituency pre-sample production values of each
+    mineral, calculated over the five years preceding the given
+    election.  Column 1 estimates Equation~\ref{eq:main} on the full
+    sample with state*year fixed effects, with the additional
+    neighboring price shock variable. Columns 2 and 3 respectively add
+    district and constituency fixed effects. Column 4 shows the marginal effect from a probit
+    estimation of a similar specification to that in Column
+    1. \input{controls_etc} }  \small
+  \input{\miningpath/app_spillovers}
+  \label{tab:app_spill}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% ALTERNATE CONTINUOUS CRIME DEFINITIONS %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\begin{table}[H]\caption{Adverse selection and moral hazard tests \cnewline
+    Alternate crime definitions}
+  \newcommand{\tablenote}{This table tests the robustness of results
+    in Tables~\ref{tab:winner_crim} and \ref{tab:ts} to alternate
+    definitions of the criminality of the winner. Columns 1 and 2 estimate the impact of local
+    pre-election mineral price shocks on the criminality of the local elected
+    politician. The dependent variable in Column 1 is the number of
+    criminal charges faced by the winner; in Column 2 it is the log of
+    the number of criminal charges plus one. Columns 3 and 4 estimate
+    the impact of post-election mineral price shocks on the number of
+    charges faced by the elected leader in a constituency. These columns
+    again show the effect on the number of charges and the log number of charges.
+    All columns include state and year fixed effects. Columns 1 and 2
+    include district fixed effects. \input{controls_etc}
+  } \small \input{\miningpath/app_crime_alt}
+  \label{tab:app_crime_alt}
+\end{table}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+%% IRON/COAL EXCLUSION %%
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\begin{landscape}
+  \begin{table}[H]\caption{Effect of price shocks on winning candidate
+      criminality \cnewline Iron, coal, conflict exclusions}
+    \label{tab:app_no_iron_coal_regs}
+    \newcommand{\tablenote}{ This table estimates the impact of a
+      local mineral price shock on the criminality of the local elected
+      leader, excluding certain effects in coal- and iron-producing
+      regions. \input{pshock_def} The dependent variable is an
+      indicator that takes the value one if the local election winner
+      is facing criminal charges. Column 1 calculates price shocks
+      with coal deposits excluded; Column 2 excludes iron deposits
+      from the price shock, and Column 3 excludes both. Columns 4-6
+      drop constituencies entirely if they have (4) a coal deposit,
+      (5) an iron deposit, or (6) either a coal or iron deposit. Column
+      7 excludes the four states with the greatest Naxalite presence
+      (Orissa, Andhra Pradesh, Jharkhand and Chhattisgarh). Column 8
+      excludes districts with at least Naxalite conflict-related death
+      between 2005--2010.
+      \input{controls_etc_dfe} } \footnotesize
+    \input{\miningpath/app_no_iron_coal_regs} \end{table}
+\end{landscape}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% FIXED CANDIDATE LOCATION %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\begin{table}[H]\caption{Effect of price shocks on winning candidate
+    criminality \cnewline Fixed candidate location}
+  \label{tab:app_fixed_loc}
+  \newcommand{\tablenote}{}
+  \input{\miningpath/app_winner_dist}
+\end{table}
+\begin{adjustwidth}{2cm}{2cm}
+  \footnotesize{This table estimates the impact of a local mineral
+    price shock on the criminality of the local elected leader (as in
+    Table \ref{tab:winner_crim}), but limits the sample to candidates
+    who have not changed constituencies from one electoral period to
+    the next. We define candidates who have not moved as those for
+    whom the constituency centroid is less than a given distance from
+    that in the previous election. The mean constituency diameter is
+    approximately 45km.  \input{pshock_def} The dependent variable is
+    an indicator that takes the value one if the local election winner
+    is facing criminal charges. Column 1 includes the full sample of
+    candidates that we are able to observe in the previous electoral
+    term. Column 2 limits to candidates who have moved less than 20km
+    since the previous electoral term. Column 3 limits to candidates
+    who have moved less than 10km, and Column 4 to 5km.  \input{controls_etc}}
+\end{adjustwidth}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% SAMPLE CONSTRUCTION FIGURE %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\begin{figure}[H]\caption{Sample construction}
+  \begin{center}
+    \includegraphics[scale=0.7]{\miningpath/nomnoml}
+    \label{fig:app_sample}
+  \end{center}
+  \footnotesize{The figure describes the process for generating the
+    sample of constituencies with valuable mineral deposits, based on
+    predelimitation constituencies. The sample consists of 4121
+    predelimitation constituencies. These are matched to 2546 mineral
+    deposits (Geological Survey of India 2005), and to district-level
+    production data (229 districts, Statistics of Mineral Information,
+    Indian Bureau of Mines). 1605 constituencies are within 10km of
+    mineral deposits, and 406 of these are in districts that report
+    production of the same mineral between 1990 and 2013. Each
+    constituency has either two or three elections in the sample
+    period, leading to a main sample size in
+    Table~\ref{tab:winner_crim} of 948 constituency-years.}
+\end{figure}  
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% SAMPLE CONSTRUCTION FIGURE %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\begin{figure}[H]\caption{Moral Hazard Estimates: Robustness to Attrition}
+  \begin{center}
+    
+    \small
+    
+    \textbf{Panel A: Log Asset Growth}
+    
+    \includegraphics[scale=0.80]{\miningpath/mh_asset_robust}
+    
+    \label{fig:app_mh_attrition}
+
+    \textbf{Panel B: Criminal Charge Growth}
+    
+    \includegraphics[scale=0.80]{\miningpath/mh_crime_robust}
+    
+  \end{center}
+  \footnotesize{The figure shows alternate estimations of the moral
+    hazard effects in Columns 1 and 4 of Table~\ref{tab:ts}. The
+    retention threshold on the X axis is a state-election-level variable
+    defined as the minimum share of constituencies in that election for which
+    we were able to observe the winner again in the following
+    election. The estimate at X=0 is the estimate in the paper. The
+    remaining estimates increasingly shrink the sample to a set of
+    elections where candidate attrition is less of a concern. The aim
+    is to show the sensitivity of the estimates to potential
+    attrition. The outcome variable is candidate change in
+    assets in Panel A and change in criminal charges in Panel B. The
+    regression estimate shows the effect of a change in local mineral
+    wealth that occurs after an election on the change in assets or
+    crime of the political representative serving that
+    constituency. The points show the point estimate of each
+    estimation along with the sample size.
+  }
+\end{figure}  
+

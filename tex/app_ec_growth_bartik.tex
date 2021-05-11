@@ -1,0 +1,31 @@
+\setlength{\linewidth}{.1cm} \begin{center}
+\newcommand{\contents}{\begin{tabular}{l*{5}{c}}
+\hline\hline
+ & \underline{Crim Winner} & \multicolumn{2}{c}{\underline{Change in Assets}} & \multicolumn{2}{c}{\underline{Change in Crime}} \\ 
+%PYTHON_HEADER
+                    &         (1)   &         (2)   &         (3)   &         (4)   &         (5)   \\
+\hline
+Bartik Predicted Pre-Election Growth&       0.078   &               &               &               &               \\
+                    &     (0.103)   &               &               &               &               \\
+Predicted Growth in Electoral Term&               &      -1.309   &      -2.442   &      -0.287   &       0.142   \\
+                    &               &     (0.950)   &     (1.584)   &     (0.316)   &     (0.668)   \\
+Winner              &               &               &      -0.289   &               &       0.068   \\
+                    &               &               &     (0.714)   &               &     (0.301)   \\
+Winner * Predicted Growth in Electoral Term&               &               &       1.158   &               &      -0.313   \\
+                    &               &               &     (1.694)   &               &     (0.700)   \\
+Constant            &       0.308***&       1.757***&       2.056***&       0.329** &       0.227   \\
+                    &     (0.039)   &     (0.397)   &     (0.656)   &     (0.138)   &     (0.281)   \\
+\hline
+State-Year F.E. & Yes & Yes & Yes & Yes & Yes \\ 
+\hline 
+Mean Dep. Var. & 0.34 & 1.21 & 1.17 & 0.21 & 0.25 \\ 
+%PYTHON_FOOTER
+\hline
+N                   &        4427   &         213   &         335   &         219   &         349   \\
+r2                  &        0.10   &        0.13   &        0.10   &        0.13   &        0.12   \\
+\hline
+\multicolumn{6}{p{\linewidth}}{$^{*}p<0.10, ^{**}p<0.05, ^{***}p<0.01$} \\
+\multicolumn{6}{p{\linewidth}}{\footnotesize \tablenote}
+\end{tabular} }
+\setbox0=\hbox{\contents}
+\setlength{\linewidth}{\wd0-2\tabcolsep-.25em} \contents \end{center}

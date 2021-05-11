@@ -1,0 +1,23 @@
+\setlength{\linewidth}{.1cm} \begin{center}
+\newcommand{\contents}{\begin{tabular}{l*{4}{c}}
+\hline\hline
+ & All & Moved $<$ 20km & Moved $<$ 10km & Moved $<$ 5km \\ 
+%PYTHON_HEADER
+                    &         (1)   &         (2)   &         (3)   &         (4)   \\
+\hline
+Price shock$_{-6,-1}$&       0.197** &       0.177** &       0.149*  &       0.164*  \\
+                    &     (0.079)   &     (0.076)   &     (0.077)   &     (0.091)   \\
+\hline
+State-Year F.E. & Yes & Yes & Yes & Yes \\ 
+\hline 
+Mean Dep. Var. & 0.43 & 0.43 & 0.43 & 0.43 \\ 
+%PYTHON_FOOTER
+\hline
+N                   &         294   &         275   &         266   &         254   \\
+r2                  &        0.19   &        0.27   &        0.25   &        0.27   \\
+\hline
+\multicolumn{5}{p{\linewidth}}{$^{*}p<0.10, ^{**}p<0.05, ^{***}p<0.01$} \\
+\multicolumn{5}{p{\linewidth}}{\footnotesize \tablenote}
+\end{tabular} }
+\setbox0=\hbox{\contents}
+\setlength{\linewidth}{\wd0-2\tabcolsep-.25em} \contents \end{center}

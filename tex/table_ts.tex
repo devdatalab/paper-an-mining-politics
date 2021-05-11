@@ -1,0 +1,35 @@
+\setlength{\linewidth}{.1cm} \begin{center}
+\newcommand{\contents}{\begin{tabular}{lccc|cc}
+\hline\hline
+ & \multicolumn{3}{c}{\underline{Change in Assets}} & \multicolumn{2}{|c}{\underline{Change in Crime}} \\ 
+%PYTHON_HEADER
+                    &         (1)   &         (2)   &         (3)   &         (4)   &         (5)   \\
+\hline
+Price shock$_{+1,+5}$&       0.253** &      -0.072   &      -0.061   &       0.212***&      -0.045   \\
+                    &     (0.104)   &     (0.172)   &     (0.183)   &     (0.061)   &     (0.085)   \\
+Price shock$_{+1,+5}$ * Winner&               &       0.306*  &       0.214   &               &       0.244** \\
+                    &               &     (0.169)   &     (0.191)   &               &     (0.100)   \\
+Price shock$_{+1,+5}$ * Violent&               &               &       0.516   &               &               \\
+                    &               &               &     (0.458)   &               &               \\
+Price shock$_{+1,+5}$ * Winner * Violent&               &               &      -0.703   &               &               \\
+                    &               &               &     (0.568)   &               &               \\
+Violent Crime       &               &               &      -0.674   &               &               \\
+                    &               &               &     (0.698)   &               &               \\
+Winner              &               &      -0.256   &      -0.144   &               &      -0.389** \\
+                    &               &     (0.254)   &     (0.283)   &               &     (0.158)   \\
+Winner * Violent    &               &               &       1.018   &               &               \\
+                    &               &               &     (0.866)   &               &               \\
+\hline
+State-Year F.E. & Yes & Yes & Yes & Yes & Yes \\ 
+\hline 
+Mean Dep. Var. & 1.02 & 0.98 & 0.99 & 0.18 & 0.20\\ 
+%PYTHON_FOOTER
+\hline
+N                   &         448   &         696   &         583   &         364   &         629   \\
+r2                  &        0.40   &        0.33   &        0.30   &        0.23   &        0.18   \\
+\hline
+\multicolumn{6}{p{\linewidth}}{$^{*}p<0.10, ^{**}p<0.05, ^{***}p<0.01$} \\
+\multicolumn{6}{p{\linewidth}}{\footnotesize \tablenote}
+\end{tabular} }
+\setbox0=\hbox{\contents}
+\setlength{\linewidth}{\wd0-2\tabcolsep-.25em} \contents \end{center}

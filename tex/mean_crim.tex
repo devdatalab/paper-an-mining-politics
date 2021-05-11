@@ -1,0 +1,22 @@
+\setlength{\linewidth}{.1cm} \begin{center}
+\newcommand{\contents}{\begin{tabular}{l*{6}{c}}
+\hline\hline
+                    &         (1)   &         (2)   &         (3)   &         (4)   &         (5)   &         (6)   \\
+\hline
+Price shock$_{-6,-1}$&       0.010   &       0.007   &      -0.002   &       0.005   &      -0.015   &      -0.035   \\
+                    &     (0.015)   &     (0.017)   &     (0.022)   &     (0.041)   &     (0.045)   &     (0.070)   \\
+\hline State-Year F.E.     & Yes & Yes & Yes & Yes & Yes & Yes  \\ 
+ District F.E.       & No  & Yes & No  & No  & Yes & No   \\ 
+ Constituency F.E.   & No  & No  & Yes & No  & No  & Yes  \\ 
+\hline 
+Mean Dep. Var. & 0.19 & 0.19 & 0.18 & 0.28 & 0.28 & 0.30 \\ 
+%PYTHON_FOOTER
+\hline
+N                   &         987   &         985   &         807   &         855   &         848   &         631   \\
+r2                  &        0.22   &        0.39   &        0.66   &        0.18   &        0.34   &        0.63   \\
+\hline
+\multicolumn{7}{p{\linewidth}}{$^{*}p<0.10, ^{**}p<0.05, ^{***}p<0.01$} \\
+\multicolumn{7}{p{\linewidth}}{\footnotesize \tablenote}
+\end{tabular} }
+\setbox0=\hbox{\contents}
+\setlength{\linewidth}{\wd0-2\tabcolsep-.25em} \contents \end{center}

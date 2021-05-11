@@ -1,0 +1,36 @@
+\setlength{\linewidth}{.1cm} \begin{center}
+\newcommand{\contents}{\begin{tabular}{l*{4}{c}}
+\hline\hline
+ & \underline{Violent} & \underline{Non-violent} & \underline{Corruption} & \underline{Not Corruption} \\ 
+%PYTHON_HEADER
+                    &         (1)   &         (2)   &         (3)   &         (4)   \\
+\hline
+Price shock$_{-6,-1}$&       0.123***&      -0.042   &       0.037   &       0.043   \\
+                    &     (0.042)   &     (0.044)   &     (0.040)   &     (0.050)   \\
+\qquad
+\textit{p-value
+from
+difference}
+&
+&
+\textit{
+0.02}
+&
+&
+\textit{
+0.94}
+\\
+\hline State-Year F.E. & Yes & Yes & Yes & Yes \\ 
+District F.E. & Yes & Yes & Yes & Yes \\ 
+\hline 
+Mean Dep. Var. & 0.09 & 0.23 & 0.08 & 0.24 \\ 
+%PYTHON_FOOTER
+\hline
+N                   &         935   &         935   &         935   &         935   \\
+r2                  &        0.31   &        0.34   &        0.33   &        0.32   \\
+\hline
+\multicolumn{5}{p{\linewidth}}{$^{*}p<0.10, ^{**}p<0.05, ^{***}p<0.01$} \\
+\multicolumn{5}{p{\linewidth}}{\footnotesize \tablenote}
+\end{tabular} }
+\setbox0=\hbox{\contents}
+\setlength{\linewidth}{\wd0-2\tabcolsep-.25em} \contents \end{center}

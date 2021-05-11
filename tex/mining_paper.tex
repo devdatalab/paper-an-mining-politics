@@ -1,0 +1,1497 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage{textcomp}
+
+% front matter
+\input{front_matter}
+
+% set paths
+\newcommand{miningpath}{.}
+
+% add Rick's formatting
+\usepackage[right=1in,left=1in,top=1in,bottom=1in]{geometry}
+\usepackage[all=normal,title,sections]{savetrees}
+\def\thesection{\Roman{section}}
+\def\thesubsection {\thesection.\Alph{subsection}}
+\usepackage{changepage}
+
+% disable hyperlinks (which are broken for appendix tables)
+\usepackage[options]{nohyperref}
+
+%allow multiple table pages
+\setcounter{bottomnumber}{3}
+\setcounter{topnumber}{2}
+\setcounter{totalnumber}{5}
+\renewcommand{\textfraction}{.001}
+
+\title{ Rent-Seeking and Criminal Politicians: \\ Evidence from Mining
+  Booms \footnote{We are thankful for useful discussions with Alberto
+    Alesina, Josh Angrist, Lorenzo Casaburi, Shawn Cole, Taryn
+    Dinkelman, Jim Feyrer, Claudio Ferraz, Ray Fisman, Ed Glaeser,
+    Ricardo Hausmann, Richard Hornbeck, Lakshmi Iyer, Devesh Kapur,
+    Asim Khwaja, Michael Kremer, Erzo Luttmer, Sendhil Mullainathan,
+    Rohini Pande, Andrei Shleifer, Konstantin Sonin, Milan Vaishnav,
+    Tony Venables and David Yanagizawa-Drott. We thank
+    Ray Fisman and Oliver Vanden Eynde for sharing data.  Srinivas Balasubramanian,
+    Alison Campion, Phoebe Liang, Kat Nicholson and Taewan Roh provided excellent
+    research assistance.  This project received financial support from
+    the Center for International Development and the Warburg Fund
+    (Harvard University). An earlier version of this paper circulated
+    with the title, ``Dirty Politics: Mining Booms and Politician
+    Behavior in India.'' All errors are our own.}}
+
+\author{Sam Asher \\ Johns Hopkins SAIS\footnote{sasher2@jhu.edu}\\ \\ Paul
+  Novosad\\Dartmouth College\footnote{paul.novosad@dartmouth.edu}\\ \\ }
+
+\begin{document}
+
+\date{This version: May 2021\\First version: March 2013}                      
+
+\maketitle
+% \addtocounter{page}{-1}
+\thispagestyle{empty}
+\begin{abstract}
+\doublespacing
+
+  \input{mining_abstract_restat}
+
+  JEL Codes: D72, P16, O13, Q33
+
+\end{abstract}
+
+\newpage
+% \setcounter{page}{1}
+\singlespacing
+
+\begin{QUOTE}
+  ``Vested interests are controlling the whole industry. Imagine, in one night, nearly a thousand vehicles go without proper permit to a port and export the iron ore without proper permit. All this is supervised by the forest department, by the mining department, by the police, by the road transport department [...] There is a checkpost everywhere, but nobody stops them. At the port, you have to show the port security valid documents, here too they don't do anything at all. Then there are forest officers inside the port, who are supposed to check whether these minerals are from the forest area, whether they have taken permission from the forest department or not. [...] Then there is the customs department which has to collect the customs duty. Nobody does anything.''
+\end{QUOTE}
+\begin{flushright} \small{Justice Nitte Santosh Hegde, Former Supreme Court Judge}
+\end{flushright}
+
+\doublespacing
+
+\section{Introduction}
+\label{sec:intro}
+
+The selection of honest politicians and the prevention of misuse
+of power in office are central to good governance, especially in
+developing countries where institutions place fewer constraints on the
+behavior of officials \cite{Caselli2004,Besley2011a,DalBo2017}. An
+important hypothesis in the literature on governance is that certain
+types of economic activity directly affect who obtains power and how
+they behave in office.\footnote{See, for example,
+  \citeasnoun{Sokoloff2000}, \citeasnoun{Easterly2003}, and
+  \citeasnoun{Acemoglu2009a}.}  The mining sector is
+thought to be particularly pernicious to political institutions for
+two reasons. First, it creates fiscal windfalls with no basis in
+taxation, which may limit the accountability of politicians. Second,
+due to the inherent nature of its operations, mining concentrates
+large rents in firms, which raises the return to rent-seeking by
+politicians. It has thus far proved difficult to empirically
+distinguish between these two channels, which have substantially
+different policy implications. In this paper, we use exogenous
+variation in mineral rents, holding constant institutions and fiscal
+windfalls, to isolate the impact of local mineral extraction on
+politician selection and behavior.\footnote{At the country level,
+  natural resource wealth is associated with worse economic and
+  political outcomes in countries with weak institutions
+  \cite{Mehlum2006,Arezki2011,Arezki2012,Bhattacharyya2010,Lei2014,Caselli2011}. A
+  second generation of research on the subject addresses the
+  endogeneity of resource-rich places by exploiting resource
+  discoveries, price shocks or rent allocation formulas
+  \cite{Bruckner2012,Carreri2014,Caselli2011}. For a thorough review
+  of studies on the relationship between political outcomes and
+  resource wealth, see \citeasnoun{Ross2015a} and
+  \citeasnoun{van2010natural}.}
+
+To generate exogenous shocks to local mineral wealth, we draw on
+changes in the global prices of 31 subsurface minerals, located in
+geological deposits throughout India. For a concrete example, consider
+two mineral-rich areas, one of which is rich in gold, and the other
+rich in silver. When the global price of gold rises relative to
+silver, there is an exogenous mineral rent shock to the gold-rich
+region that is not expected to be correlated with other events in that
+region, except through the increased value of gold. We exclude areas
+with no minerals, to avoid comparing mineral-rich to mineral-poor
+areas, which may be different on many dimensions.\footnote{Our use of
+  global price shocks to identify exogenous changes in mineral wealth
+  is similar to \citeasnoun{Dube2013}, \citeasnoun{Bruckner2010} and
+  \citeasnoun{Berman2017}, among others.}  Mandated public disclosures
+allow us to observe the criminal charges filed against each candidate
+contesting state-level elections in India, along with their assets.
+
+We document three primary findings. First, increases in local mineral
+rents cause criminal politicians to win more elections, in spite of
+marginal increases in electoral competition.\footnote{Following
+  standard practice in India, we describe candidates facing formal
+  criminal charges as ``criminal politicians.'' The vast majority of
+  these cases drag on for years, such that few have been resolved,
+  making it impossible to conduct a similar analysis using
+  convictions. We discuss the possibility that charges misrepresent
+  actual crimes in Section~\ref{ssec:politics}.} The effect is
+particularly large for politicians charged with violent crimes.
+Second, when the value of local minerals rises during the electoral
+term, elected politicians accumulate additional criminal
+charges. Third, elected politicians gain substantial wealth during
+mining booms.  The increases in crime and wealth are limited to
+politicians who are in office; we find neither effect on politicians who
+competed for office but were not elected.
+
+Our basic specification studies the effect of a constituency-level
+mineral wealth shock driven entirely by changes in the global price of
+the basket of minerals produced in that constituency. To measure
+adverse selection, we examine the effect of the change in mineral
+wealth over the five years before an election on the likelihood that a
+criminal politician gains office. To measure moral hazard, we examine
+the effect on political behavior of price shocks that raise the value
+of local minerals \textit{after} a politician has been elected.  All
+specifications include state--year fixed effects, thus drawing only on
+variation across small constituencies within Indian states. The
+selection effect estimates are robust to a specification with
+constituency fixed effects that relies on changes in mineral wealth
+only within the same constituency across time. Due to sample size,
+this specification is not available in the moral hazard estimates,
+which rely on cross-sectional variation in recent price
+shocks.\footnote{A constituency fixed effect analysis would require
+  three observations (hence two changes) for each constituency. While
+  we have three observations for most locations, a redrawing of
+  constituency boundaries at the midpoint of the sample makes it
+  impossible to link places across the entire time period. However, we
+  present several pieces of evidence suggesting that these price
+  shocks are exogenous to constituencies, supporting a causal
+  interpretation of the cross-sectional design.} These effects are
+robust to excluding conflict-affected districts and do not
+appear in placebo tests based on unproductive deposits or price
+shocks from different years. Positive economic shocks to the
+manufacturing or agricultural sectors have no effects on the same
+outcomes, suggesting that our results are driven by a phenomenon
+specific to the mining sector rather than a general effect of economic
+activity. One limitation of the moral hazard result is that we are limited to studying incumbents who chose to run for office a second time; there may therefore be some attrition bias (56\% of winners in our sample run again), but it would have to be very large to explain the full effect.
+
+Because of the structure of mineral taxes and royalties in India, we
+can rule out the possibility that these results are driven by
+increases in state revenue or larger discretionary budgets for
+politicians. This is important because fiscal windfalls can have
+independent adverse effects on political outcomes
+\cite{Robinson2006,Brollo2009,Martinez2015}. Mineral taxes and
+royalties are collected by state governments and are \textit{not}
+disproportionately disbursed in the areas where mining takes
+place. Local increases in economic activity associated with mining may
+raise revenue at other levels of government, but do not affect the
+discretionary funds available to the state legislators that we
+study. To our knowledge, this is the first study to isolate the impact
+of natural resource wealth on political outcomes in the absence of
+fiscal windfalls. In fact, several of the best identified studies on
+natural resources and political outcomes draw identification from
+exogenous allocation of oil windfalls to municipalities in Brazil, and
+thus test strictly for the fiscal windfall impact in isolation from
+direct rent-seeking from mineral extraction operations
+\cite{Caselli2011,Monteiro}.\footnote{These studies exploit a formula
+  that allocates royalties to municipalities based on characteristics
+  unrelated to resource extraction activities in the municipalities or
+  to the hold-up powers of the mayors.  They find that fiscal
+  windfalls lead to: (i) increased municipal spending with little
+  impact on municipal public goods \cite{Caselli2011}; and (ii)
+  increased public employment and short-term incumbency advantages
+  \cite{Monteiro}. \citeasnoun{Brollo2009} study fiscal windfalls that
+  occur for reasons unrelated to natural resource wealth, finding that
+  they cause the election of less educated mayors and cause mayors to
+  engage in more corruption.}  Our study is distinct and
+complementary: the direct impact of mining operations that we isolate
+is a channel that these earlier studies explicitly do not address.
+
+This paper makes two contributions to the literature on the
+relationship between natural resources and political behavior. First,
+we show that mineral extraction operations have a direct adverse
+effect on political outcomes, even in the absence of fiscal windfalls.
+Second, we provide a distinct test for moral hazard from access to
+rents while in office; this effect is also economically
+meaningful. Rent-seeking opportunities that emerge once politicians
+are already in office cause those politicians to gain assets and
+engage in new criminal behavior.\footnote{The best empirical evidence
+  to date of these channels is in \citeasnoun{Brollo2009}, who model
+  the adverse selection and moral hazard effects of fiscal windfalls
+  in Brazil. They provide suggestive evidence that the moral hazard
+  channel is important, in that controlling for candidate education
+  does not change the effect of fiscal windfalls on corruption, but
+  they do not rule out selection effects. \citeasnoun{Andersen2013}
+  present indirect evidence of the enrichment of leaders from oil
+  booms, showing that oil shocks lead to increased tax haven bank
+  deposits from autocratic oil-exporting countries. Using the same
+  asset data as we do, \citeasnoun{Fisman2013} find that Indian
+  politicians gain disproportionate wealth when elected to office. The
+  latter two papers identify returns to political office but do not
+  identify politician behavior response to changes in rent-seeking
+  opportunities.} While these effects may lead to similarly bad
+outcomes, they have substantially different implications; paying
+closer attention to voter decision-making and the operation of
+elections can mitigate the selection effect, while better monitoring
+of candidates in office can mitigate moral hazard.
+
+A key question raised by our study is what form this rent-seeking
+takes. The illegal behavior of politicians could be detrimental or
+beneficial to mining firms. Models of politicians and firms have
+usually focused on the case where politicians extract rents by
+blocking access to government services like licenses and permits
+\cite{Shleifer1994}. In contrast, firms could benefit from politicians
+who can facilitate illegal activities, like expanding mines beyond
+license boundaries, violating environmental laws, or intimidating
+journalists and activists. Empirically distinguishing between these
+two scenarios is difficult given the paucity of reliable data on
+either the profits or revenues of mining firms, and is beyond the
+scope of this paper. However, qualitative evidence suggests that firms
+and politicians often have collusive relationships
+\cite{Bhowmick2011,Paul2015}, as does empirical evidence from other
+sectors \cite{lehne2016}. The \textit{de facto} roles of Indian
+politicians as local fixers make them well-placed to provide services
+to illegal mining firms, such as enforcing illegal contracts and
+intimidating whistleblowers \cite{Chopra1996,Jensenius2013a}.  The
+importance of violent crimes in explaining our results is also
+consistent with this interpretation. Violence-using politicians are
+particularly well-suited to providing the services demanded by mining
+firms; as emphasized by the literature on mafias, violent actors are
+often essential to the functioning of black markets, and ethnographic evidence from India suggests that politicians play precisely this role
+\cite{Gambetta1996,Bandiera2003,Berenschot2011,Skarbek2011,Chimeli2011,Vaishnav2017}.
+
+Previous studies of criminal politicians in India have largely ignored
+the fact that a large share of criminal politicians face charges of
+serious violent crimes \cite{Prakash2014,Fisman2013}; our preferred
+interpretation, in contrast, highlights the politician's ability to
+coordinate acts of violence as central to his role. We discuss the
+possible role of violence in Section~\ref{sec:disc}, and formalize
+these ideas in a political agency model in the spirit of
+\citeasnoun{Persson2000} in Appendix~\ref{sec:model}.  However,
+empirically testing these hypotheses for the specific role of violence
+in the mining sector is left to future work.
+
+\section{Background: Mining and Politics in India}
+\label{sec:bg}
+
+\subsection{The mineral industry in India}
+\label{ssec:mining}
+
+In 2010, the mining sector in India employed 521,000 workers and
+produced 2.5\% of Indian GDP from over sixty different minerals
+\cite{IndianBureauofMines2011c}. This is a small share of the economy
+as a whole, but the output share of the mineral sector is much higher
+in the localized regions where extraction takes place.
+From independence until the 1990s, Indian mines were predominantly
+state-owned. Many mines were privatized in the subsequent
+liberalization era. By 2010, 2229 of 2999 mines were privately owned,
+representing 36\% of total production value
+\cite{IndianBureauofMines2011c}. The mining sector is jointly
+regulated by the federal and state governments; royalties and taxes
+paid by mining corporations go directly to state and federal
+governments.  
+
+Importantly, there is no requirement for fiscal proceeds from mining
+to be spent in communities affected by mines, nor is there any
+indication that they are.\footnote{In 2015, India revised the Mines
+  and Minerals Act to require a share of mineral royalties to be paid
+  to a district development fund. Even these districts are seven times
+  the size of constituencies, the unit of observation in this study,
+  and no such payments had yet been made in the sample period.}
+Elected politicians in many states receive development funds under the
+MLA Local Area Development fund schemes; these sums are small and
+constant across constituencies and are thus not affected by local
+mineral rents. Local taxation operates at jurisdictional levels with
+no direct relationship with the legislative assemblies that are the
+subject of this study. Therefore, even if mineral wealth shocks
+increase local business activity, they will not affect the
+discretionary budget of the local state legislator.  We can thus rule
+out the possibility that our results are caused by the fiscal
+windfalls present in other studies of natural resource wealth.
+
+Large scale criminal activity was present in the mining sector
+throughout the period of our study (2003--2017). Most of the illegal
+activity in this period was directly linked to the role of government
+in the mineral sector; management of fiscal windfalls played little
+role, as royalties are treated as general funds by state and federal
+governments and are not linked to mining activities. Illegal mining
+includes but is not limited to: (i) underreporting of mineral output
+to avoid taxes and royalties; (ii) conducting prospecting and mining
+in areas without official permits, including preservation areas; (iii)
+violation of environmental regulations; and (iv) bribe-taking by state
+officials in exchange for mining permits. Intimidation of activists
+and journalists have also been widely reported. Major mines in India
+are now largely open caste mines with activities visible from outer
+space, which makes illegal mining difficult to hide. Authorities are
+thus virtually always complicit in illegal mining.
+
+In 2010, the federal government formed the Shah Commission of Inquiry
+to investigate illegal mining in a range of states and minerals. The
+Commission documented illegal mining at a large scale in every mineral
+and every state where it conducted investigations. The scale of
+illegal activities implied coordination at many levels of
+government. The findings of the Shah Commission eventually motivated
+the Supreme Court of India to ban iron mining in three major states
+\cite{wsj2013chat}. The Commission was terminated in 2013 by the
+federal government with little explanation, though investigations
+in several states had yet to begin.\footnote{For more information on
+  illegal activity in the mining sector, see the various state reports
+  of the Ministry of Mines Shah Commission. See also the report of the
+  Karnataka Lokayukta (an anti-corruption commission) on iron ore
+  mining (July 27, 2011). \citeasnoun{Chauhan2012} summarizes specific
+  criminal allegations against mining firms in eleven different
+  states.}
+
+The case of the Reddy brothers in Karnataka encapsulates many features
+of the relationship between mining and politics in India. Through
+the benefit of political connections, the brothers first obtained iron
+licenses in Andhra Pradesh in the early 1990s. Over the course of a
+ten-year iron boom, they became key financiers of elections, eventually
+becoming billionaires and government ministers. They have been charged
+with a range of illegal mining activities, perhaps most brazenly of
+moving the state boundary markers dividing Andhra Pradesh from
+Karnataka to place their mining operations in the state with the more
+favorable regulatory environment. They have openly admitted to bribing
+politicians to switch parties and have been accused of various acts
+of violence and intimidation \cite{Vaishnav2017}.
+
+The mineral sector is tied to illegal behavior in many countries other
+than India as well. See, for example, \citeasnoun{Africapp2013} on
+illegal outflows from Africa. The very existence of an industry-funded
+organization aiming in part to decreasing the amount of law-breaking
+in the mining industry, the Extraction Industries Transparency
+Initiative, is a case in point of the ubiquity of illegal activity in
+the sector.
+
+\subsection{Political context}
+\label{ssec:politics}
+
+Indian states have ownership rights over all minerals within their
+boundaries; while federal clearances are required for the mining of
+certain minerals, states have hold-up power over these as well.  State
+politicians, also known as Members of Legislative Assemblies (MLAs),
+are elected in first-past-the-post, single elector constituencies. The
+formal powers of state politicians are exercised through the state
+legislatures; while they have no formal role in the permitting
+process, in practice they play a significant informal
+role. A central de facto role of local politicians is to help
+citizens obtain services from the state
+\cite{Berenschot2011,Jensenius2013a}; they also exert significant
+authority over state bureaucrats through their ability to reassign
+them \cite{Iyer2012a,Vaishnav2017}. This gives local politicians
+significant control over the many permits and clearances that are
+required before mining operations can begin, including reconnaissance
+permits, prospecting licenses, mining leases, environmental clearances
+and surface rights (often to government-owned land). In other work, we
+find that political factors influence the allocation of these permits
+\cite{an2017pols}. The set of regulatory restrictions known as the
+License Raj has persisted in the mining sector even while it was
+dismantled elsewhere, and additional permits are required for the
+expansion or alteration of existing leases, as well as expanding
+production from given mines. The state legislator is thus one of the
+most important officials that mining firms rely upon both for
+facilitation of operations and for prevention of predation by the
+state. We spoke with several mine operators, and each one had a
+personal relationship with the legislator representing the
+constituency of the mine.
+
+From 2003--2017, 32\% of elected politicians at the state and federal
+level in India were facing formal criminal charges in a court of law;
+a third of these were for violent crimes (Appendix
+Table~\ref{tab:pol_crimes}). Explanations for the success of criminal
+politicians in India remain contested. Four prevailing hypotheses are:
+(i) voters would prefer non-criminal representatives, but lack
+information about the criminality of candidates
+\cite{Banerjee2012b,Pande2011}; (ii) voters penalize criminal
+candidates, but may nevertheless choose them for ethnic reasons
+\cite{Chauchard2014a}; (iii) criminals are favored by parties because
+they are self-financing \cite{Vaishnav2017};\footnote{The soaring cost
+  of elections in India and tight official restrictions on spending
+  lead to a high demand among politicians for untraceable money, or
+  ``black money'' as it is known in India \cite{Vaishnav2017}. As an
+  industry with the potential to rapidly generate undocumented cash,
+  mining is widely suspected to be a significant funding source for
+  many political campaigns.} and (iv) criminals are favored by voters
+because they are better at delivering services from a failing state
+\cite{Vaishnav2017}.
+
+Using criminal charges as a measure of criminal behavior is subject to
+the concerns that changes in reporting of crime are difficult to
+distinguish from actual crime and that charges may be fabricated by
+political enemies. This is a difficult problem to address and is faced
+by many studies on criminal behavior by politicians in developing
+countries. Most of these charges will not be resolved for decades due
+to the backlog in the Indian court system; even when they are
+resolved, the judgment may be politically biased
+\cite{poblete2019}.
+
+There is empirical evidence that criminally-charged politicians are
+bad for their constituents, are disliked by voters, and are recognized
+by parties to be weaker candidates, suggesting that the charges they
+face are plausibly valid. \citeasnoun{Chemin2012} and
+\citeasnoun{Prakash2014} find that average outcomes are worse in
+constituencies represented by criminally-charged politicians. Vignette
+studies suggest that, all things equal, voters prefer non-criminal
+candidates \cite{Banerjee2012b,Chauchard2014a}, and parties are less
+likely to run criminally-charged candidates in competitive elections
+\cite{shaukat2018}.\footnote{See \citeasnoun{Pande2011} for a summary
+  of empirical research on voter preferences for politician quality.}
+Anecdotally, many politicians in fact advertise their willingness to
+flout the law or ability to organize violence
+\cite{Vaishnav2017}. Finally, much of our empirical focus is on
+violent crimes, which are less likely to be entirely fabricated than
+minor crimes \cite{iyer2012}. Henceforth, following convention in
+India, we refer to criminally-charged politicians as criminal
+politicians.
+
+\section{Data}
+\label{sec:data}
+
+We combined data on electoral outcomes, candidate characteristics,
+mineral deposit locations, and mineral production. India is divided
+into approximately 600 districts and 4000 constituencies;
+approximately 400 districts have productive mineral
+deposits. Constituency and district boundaries do not cross. All of
+the data is available at the constituency level, with the exception of
+mineral production, which is at the district level.
+
+Data on electoral outcomes from 1990--2017 come from the Election
+Commission of India (ECI), described in \citeasnoun{Jensenius2013b}
+and shared by the Trivedi Center for Political Data. We tracked
+changes in names of parties over time in order to identify the local
+incumbent party in each constituency.  To measure political
+competition, we use the effective number of parties (ENOP), an inverse
+Herfindahl measure based on vote share \cite{Laakso1979}.
+
+Data on politician characteristics come from sworn affidavits
+submitted by candidates to the ECI. These include a list of criminal
+charges currently under prosecution, assets and liabilities of
+candidates and their relatives, as well as the candidate's age and
+education. These affidavits have been required from all candidates
+seeking state-level election following Supreme Court rulings in 2002
+and 2003 and have been digitized and disseminated by the Indian
+Electoral Commission and the Association for Democratic Reform (ADR).
+The resulting candidate-level data have been widely analyzed and
+discussed in the media as well as by scholars
+\cite{Prakash2014,Fisman2013}.  Election laws in India bar convicted
+criminals from contesting elections; for sitting politicians, criminal
+charges are the best available measure of politician
+criminality. Criminal charges are unlikely to be omitted, as they are
+easily verified from public record and politicians can be fined,
+disqualified from elections, or imprisoned if found with incorrect
+affidavits \cite{Prakash2014,Vaishnav2017}.
+
+We computed net wealth as assets less liabilities across all family
+members.\footnote{As in \citeasnoun{Fisman2013}, who study the private
+  returns to political office in India, we removed candidates with net
+  wealth less than Rs 100,000 (approximately USD 1500), and winsorized
+  at the 1st and 99th percentile. Alternate choices do not materially
+  affect the results.}  Figure \ref{fig:affidavit} shows a scan of a
+submitted affidavit; the list of numbers under the entry marked (iii)
+in the figure is a list of sections under the Indian Penal Code under
+which this candidate has been charged.  In order to observe changes in
+politician wealth and criminal behavior over time, we constructed a
+time series of candidates who recontest elections.  We extended data
+from \citeasnoun{Fisman2013} and ADR, manually matching candidates
+based on name, age, level of education and tax ID number. We matched
+50\% of winners and 34\% of runners up in our mining constituency
+sample to future elections.
+
+To verify the accuracy of the ADR-coded affidavits,
+\citeasnoun{Prakash2014} re-entered all of the affidavits for the top
+two candidates from 2003 to 2007. Comparing the re-entered data to the
+data posted by ADR shows that fewer than 3\% of candidates changed
+from criminal to non-criminal or vice versa in the recoding. However,
+the number of crimes increased for about a quarter of candidates,
+suggesting that the ADR data accurately identifies whether candidates
+are criminally charged but underestimates the total number of
+charges. We use the re-entered data where it is available and the ADR
+data for the remainder of elections. Because our results focus on the
+presence or absence of criminal charges, the discrepancy in the number
+of charges does not affect our primary analysis. The analysis sample
+includes affidavits covering the years 2003--2017.
+
+Geocoded data on the type and size of all known mineral deposits in
+India is from the Mineral Atlas of India
+\cite{GeologicalSurveyofIndia2001}.\footnote{The Geological Survey of
+  India is a technocratic agency which to date has remained clear of
+  India's many mining scandals.  All our results except those on
+  election results are from after 2001, mitigating any reverse
+  causality from mineral prices to deposit discovery; the results on
+  elections are robust to using data only from later dates.}
+Production data are published at the district-mineral level in the
+annual \textit{Statistics of Mineral Information}, which we
+digitized. We divided district production into all constituencies
+within a district that had matching deposits of the same mineral,
+weighting by deposit sizes. 91\% of reported mineral output can be
+matched to specific deposits. We defined local production as the
+average value of output from 1990--2013, matching the sample of
+elections to the extent possible. From a list of 45 minerals for which
+we have both deposit and price data, we excluded minerals for which
+the Indian Bureau of Mines does not publish production statistics (on
+account of their low value), and we excluded constituencies with
+economically insignificant production in all
+years.\footnote{Specifically, we dropped constituencies where annual
+  production never exceeded USD 100,000. The average exchange rate
+  during the sample period was 45 INR per USD, but the threshold was
+  established in U.S. dollars because we valued output as constituency
+  production multiplied by global price.}  To account for the fact
+that mineral deposits may span constituency boundaries, we also
+assigned production to all constituencies within 10km of an active
+deposit, using a triangular kernel that puts the greatest weight on
+the nearest deposits. Results are robust to alternate choices on all
+of these dimensions, many of which are shown in appendix tables.
+
+We include both public and private mines, which are not distinguished
+in any of the data sources that we use. Given the private returns to
+illegal mining and the key role of politicians, both public and
+private mining operations create opportunities for rent-seeking. 
+
+Appendix Figure~\ref{fig:app_sample} shows how we construct our
+analysis sample of 946 constituency elections, which covers 31
+distinct mineral types across 25 Indian states. Figure
+\ref{fig:deposit_map} shows a map of deposit locations, along
+with district-level production, where the most productive districts
+are shaded the darkest. The map reveals the wide dispersion of
+minerals across India. Most of the unexploited deposits are in the
+difficult-to-access Himalaya mountain region.
+
+Commodity prices come from the United States Geological Survey
+\cite{Kelly2013}, which reports average annual U.S. prices from before
+1900 to 2017. Where the price of ore as reported in the Indian deposit
+data is not available, we use the price of the processed output of the
+mineral deposit (e.g. we use aluminum prices for bauxite deposits).
+Relative to world totals, India is a small producer of all minerals
+except iron and coal, so there is little concern that global prices
+are endogenous to Indian constituency-level politics.\footnote{India
+  produces 13\% of the world's iron; for all other minerals, India
+  produces less than 10\% of global value (British Geological Survey
+  2014). Results are robust to the exclusion of these two minerals
+  (Appendix Table~\ref{tab:app_no_iron_coal_regs}).}  Constituency
+boundary shapefiles were purchased from ML Infomap.
+
+Finally, we construct several constituency-level variables from the
+2001 Population Census describing demographics and public goods. In
+the robustness checks, we use constituency-level non-farm employment
+from the Economic Census of India, a complete enumeration of all
+formal and informal enterprises in all industries other than
+agriculture, described in \citeasnoun{almn2019shrug}. Precipitation is
+measured as total rainfall in the month of monsoon arrival, using data
+from the Climate Hazards Group InfraRed Precipitation with Stations
+data archive \cite{Chirps2014}.
+
+India underwent a national redelimitation of political boundaries in
+2007. Since politicians began submitting affidavits with criminal case
+information only in 2003, the sample in most states includes one
+election before redelimitation and one or two elections after.\footnote{Two
+  states, Jharkhand and Assam, did not change their constituency
+  boundaries during the sample period.}
+
+\section{Empirical strategy}
+\label{sec:strat}
+
+Our goal is to estimate the impact of local mineral rents on the
+selection and behavior of elected politicians.  This is challenging
+because natural resource wealth is endogenous to the quality of local
+political institutions for at least two reasons. First, minerals are
+typically found in places that are remote and rugged; settlements
+driven by natural resource wealth may be more remote or have fewer
+other natural advantages. Second, productive mines require not only
+the presence of mineral deposits but also government-dependent inputs
+such as infrastructure, clearances and capital; a given deposit may be
+more productive if the state can supply these inputs efficiently.
+
+We address these concerns by identifying plausibly exogenous changes
+in the subsurface wealth of mineral-producing areas that are driven by
+changes in global mineral prices, an approach used by
+\citeasnoun{Bruckner2010} and \citeasnoun{Berman2017}, among others.
+We test three specific hypotheses. First, we test whether positive
+mineral wealth shocks \textit{before elections} lead criminal
+politicians to win more elections, a selection effect. Second, we test
+whether positive mineral wealth shocks that occur after candidates
+have been selected into office cause politicians in office to gain
+wealth and to commit more crimes. We call this a moral hazard effect,
+as it isolates the effect of mineral wealth on candidate behavior,
+while holding candidate selection fixed. Third, we test whether the
+effects of rents are strongest for the most criminal types, as would
+be expected if they have the most to gain from the mining industry
+(though this test proves underpowered).  These three predictions can
+be derived from a political agency model in the spirit of
+\citeasnoun{Persson2000}; we present such a model in
+Appendix~\ref{sec:model}.
+
+We first explain how we construct local mineral wealth shocks. We then
+describe the empirical specifications that test for
+adverse selection and moral hazard.
+
+\subsection{Defining Exogenous Mineral Price Shocks}
+
+For each constituency-election, we use global price changes to
+identify exogenous shocks to constituency-level mineral rents.  We
+define a rent shock to a constituency as the change in rents driven by
+global prices alone; in constituencies with multiple minerals, we
+weight the mineral-specific price shocks with the constituency's
+estimated average production during the entire sample
+period.\footnote{Results are robust (and in fact are stronger) to
+  using production weights based on pre-sample production (1990--2003,
+  Appendix Table~\ref{tab:app_alt_pshock_regs}). We use a
+  time-invariant average rather than time-varying production for three
+  reasons. First, we are missing data for approximately one third of
+  the years, for which we were not able to obtain editions of
+  \textit{Statistics of Mineral Information}. Second, year-to-year
+  changes in production numbers are large, possibly indicating errors
+  or misreporting, the latter of which could be correlated with price
+  shocks. The average is thus a better estimate of potential
+  constituency production. Third, production changes may be endogenous
+  to local political behavior; by holding production fixed, we isolate
+  the effect of the change in rents.}  While the level of
+production in a given constituency may be endogenous to constituency
+characteristics other than the mineral deposit, the predicted change
+in resource wealth is affected only by exogenous global price
+movements.
+
+We measure price shocks in five year terms to match the legislative
+electoral term. A price shock thus measures the extent to which local
+minerals have changed in value from the period just before the
+previous election. Given the mean-reverting nature of commodity
+prices, we prefer the five-year term to a shorter term as it is more
+likely to capture a persistent change in a commodity's value, and thus
+its expected value over the next electoral
+term.\footnote{\citeasnoun{Cashin2002} estimate the 90\% confidence
+  interval of the half-life of commodity price shocks to be between
+  2.2 and 6 years.} Results are robust to a range of different price
+shock length and baseline assumptions.
+
+We define a pre-election constituency-level price shock as the
+change in the global value of the constituency production-weighted
+mineral basket from years $t=-6$ to $t=-1$, relative to an election in
+year $t=0$. The price shock in constituency $c$ and state $s$
+preceding an election in year $t$ is defined as:
+%
+\begin{equation}
+  \label{eq:ps}
+  PriceShock_{c,s,t-6,t-1} = \frac{\sum_{m \in
+      M}\big(Q_{c,s,m}\cdot\frac{p_{m,t-1}}{p_{m,t-6}}\big)}
+  {\sum_{m \in
+      M}\big(Q_{c,s,m}\big)}
+  \text{,}
+\end{equation}
+% 
+where $M$ is the set of minerals in constituency $c$, $Q_{c,s,m}$ is
+the mean production value of mineral $m$ in state $s$
+and constituency $c$, and $p_{m,t}$ is the global price of mineral $m$
+in year $t$.
+
+We winsorize the upper tail of the price shock distribution at a 200\%
+increase (approximately the 99th percentile) to ensure that results
+are not driven by extreme shocks in a small number of
+places.\footnote{We do not winsorize the bottom tail of price shocks,
+  as the minimum shock is a 43\% loss, which is not a particularly
+  large outlier. Results are not substantively changed by either
+  winsorizing the bottom at the first percentile, or leaving the top
+  tail unwinsorized.}  Figure~\ref{fig:bar_pshock_2005} shows the
+mineral-level price changes that precede elections taking place in
+2004, (i.e. $p_{m,2003}/p_{m,1998}$). Figure~\ref{fig:shock_map}
+shows a map of sample constituencies, shaded in a gradient
+corresponding to the same price
+shock. Figure~\ref{fig:ps5_hist} presents a histogram of the 5-year
+price shocks generated in all constituency-year pairs in the 
+analysis sample. The mean price shock is above one because the sample
+period 2003--2017 was characterized by rising commodity prices.
+
+An ancillary benefit of this price shock definition is that it is not
+biased by misreporting of mineral production, which is thought to be
+widespread in India. The incentive to underreport mineral production
+is highest when mineral prices are high for two reasons: (i) mining
+permits put a ceiling on legal production; and (ii) taxes and
+royalties are increasing in output value. We use production data only
+to get a time-invariant within-constituency value weight for each
+deposit. Because we predict changes in local mineral wealth from
+international prices, time-variant misreporting of production cannot
+bias our estimates, nor could a relationship between underlying
+political factors and baseline production. For completeness, we also
+estimate a specification that ignores production data entirely and
+treats each mineral deposit as if it was productive. For that
+specification, we weight minerals within constituencies by deposit
+size.
+
+An alternate strategy would be to use global prices to predict changes
+in mineral \textit{output} rather than changes in the local mineral
+price level. While our results are robust to using this strategy, it
+is subject to an omitted variable bias. Given that the average price
+shock is positive, the output shock from global prices will be largest
+in places that are heavy mineral producers at baseline. A secular
+increase in criminality in the most mineral-rich places would
+therefore bias upward the estimate of the price shock impact.
+
+\subsection{Estimating the Selection Effect}
+
+The adverse selection effect predicts that high anticipated mineral
+rents will lead to the election of more criminal candidates.  To test
+this, we examine the impact and outcomes of local mineral price shocks
+that occur before an election takes place.  For an election outcome at
+time $t$, we estimate the following equation at the constituency-year
+level:
+
+\begin{equation}
+  \label{eq:main}
+  Y_{c,d,s,t} = \beta_0 + \beta_1 * PriceShock_{c,t-6,t-1} + 
+  \zeta*X_{c,s} + \gamma_{s,t} + \nu_{d} + \epsilon_{c,t}\text{.}
+\end{equation}
+
+\noindent $Y_{c,d,s,t}$ is a political outcome (e.g., an indicator for
+whether the elected representative is facing criminal charges) in
+constituency $c$, district $d$, state $s$ and year
+$t$. $PriceShock_{c,t-6,t-1}$ is the price change of the
+production-weighted basket of mineral deposits found in constituency
+$c$ over the five years before the election. $X_{c,s}$ is a vector of
+time-invariant constituency controls, which include the number of
+deposits in and within 10km of the constituency, a Herfindahl-based
+measure of the dispersion of mineral types in each location at
+baseline, the log of constituency population, the population share
+living in rural areas, the share of villages with electricity, and the
+per capita number of primary schools.  State-year and district fixed
+effects are represented by $\gamma_{s,t}$ and $\nu_d$
+respectively. There are about seven constituencies in every district,
+but in most districts only one or two constituencies have mines. The
+coefficient $\beta_1$ identifies the effect of a change in local
+mineral wealth on the outcome.
+
+State-year fixed effects control for any state level changes in
+politician criminality that could be correlated with mineral price
+movements; our estimates are driven strictly by variation in mineral
+wealth shocks within a given state election.  State-year fixed effects
+also control for fiscal windfalls from mining taxes and royalties,
+which accrue to state governments.  District fixed effects control for
+time invariant characteristics of geographic regions, for example, a
+predilection for the election of criminal candidates. Given the
+exogeneity of global price shocks, these fixed effects (along with the
+constituency controls) are not strictly necessary but improve
+estimation precision. The inclusion of constituency fixed effects
+would control further for time-invariant characteristics of places,
+ensuring that all the variation comes from changes in mineral prices
+in the same constituencies over time. Unfortunately, the national
+updating of constituency boundaries that occurred in the middle of the
+sample period makes it impossible to use this strategy for the whole
+time period. We show this specification for the subset of
+constituencies that have two elections after the boundary change for
+all results, but we prefer the district fixed effect specification as
+it is more powered and identifies the effect of the same exogenous
+variation.  To take into account the colocation of similar minerals
+and serial correlation of political outcomes, standard errors are
+clustered at the district level.\footnote{We do not include
+  district-year fixed effects because they take away much of the
+  variation that we want to exploit: similar minerals are colocated
+  and much of the variation in mineral rent shocks is effectively at
+  the district level; there are also many districts with only one kind
+  of mineral deposit. The standard errors under the remaining sample
+  with district-year fixed effects are too large to detect even very
+  large effects.}
+
+\subsection{Estimating the Moral Hazard Effect}
+
+The moral hazard effect predicts that politicians in office engage in
+more rent-seeking when mineral rents are high. To isolate the moral
+hazard effect, we identify shocks to mineral rents that take place
+\textit{after} selection into office has taken place. Specifically, we
+use the shock to local mineral rents from the first year after a
+politician is in office to the fifth and last year of their electoral
+term. This captures the extent to which local mineral rents
+unexpectedly increase during the candidate's term in
+office.\footnote{We exclude politician terms that lasted only one or
+  two years, which results in dropping four runners up from the
+  sample. The remaining politicians in the sample stayed in power for
+  at least four or five years before the next election. We use a
+  five-year price shock even for the four-year electoral terms to
+  avoid conditioning on the dependent variable.} We use the following
+estimating equation:
+
+\begin{equation}
+  \label{eq:ts}
+  Y_{c,d,s,t+5} = \beta_0 + \beta_1 * PriceShock_{c,d,s,t+1,t+5} + \beta_2 Y_{c,d,s,t} + 
+  \zeta*X_{c,d,s} + \gamma_{s,t+5} + \epsilon_{c,d,s,t+5}\text{.}
+\end{equation}
+
+\noindent The politician is elected in year $t$ and observed again in
+year $t+5$.  $Y_{c,d,s,t+5}$ is a candidate-level characteristic
+(assets or criminal charges faced) observed at the end of the
+politician's term in office and $Y_{c,d,s,t}$ is the same
+characteristic at the beginning of the electoral term. The remaining
+variables are defined as in Equation~\ref{eq:main}. As before,
+state-year fixed effects restrict the estimation to within-election
+variation across constituencies. Because this test necessitates
+observing politician characteristics at the beginning and end of the
+electoral term, for most states we observe candidates only over the
+course of one electoral term. We therefore do not include district or
+constituency fixed effects, as they would remove nearly all of the
+meaningful variation in mineral rent shocks. Robust standard errors
+are clustered at the district level.
+
+To control for the possibility that mining booms cause all candidates
+(or all individuals) to gain wealth or commit crimes, we estimate a
+version of this specification with runner up candidates in the sample,
+and test for differential effects for election
+winners.\footnote{Election winners may be different from losers on
+  other unmeasured characteristics. Our identification comes from the
+  exogeneity of the price shock, so we can still infer that price
+  shocks cause increases in the wealth of winners, but it is
+  conceivable that something other than being winners is what sets them
+  apart from runners up. A close election regression discontinuity
+  approach is not feasible here because only a subset of
+  constituencies have productive minerals, and only a fraction of
+  those have close elections. (The share of close elections is
+  similar in mineral-rich and mineral-poor constituencies.)}
+
+\section{Results}
+\label{sec:results}
+
+\subsection{Summary statistics}
+\label{ssec:sumstats}
+
+Table~\ref{tab:sumstat} presents summary statistics for the sample. We
+have data on 948 constituency-level elections that took place between
+2003 and 2017 in constituencies with productive mineral deposits. The
+adverse selection sample consists of 182 pre-delimitation constituencies and 411
+post-delimitation constituencies; 355 of the latter are observed
+twice. The moral hazard sample consists of 696 candidates who are
+observed contesting subsequent elections in the affidavit period. The
+baseline year in this sample ranges from 2003--2012;
+the next observation is five years after that.
+
+The average mineral-rich constituency has three mineral deposits.  The
+average candidate has net assets of approximately USD 100,000, and is
+thus very wealthy by Indian standards; 33\% of elected candidates face
+pending criminal cases; 10\% are charged with serious violent
+crimes. The candidate-level sample is limited to candidates who
+contested two elections and who could be matched over time.
+
+Causal interpretation of our results rests on the assumption that
+price shocks are exogenous. We test this assumption by regressing
+baseline constituency characteristics on forward-looking 5-year price
+shocks to local minerals. The moral hazard regressions are based on
+recent years where forward price shocks are unavailable, so we use
+lagging price shocks.  Columns 5 and 6 of Table~\ref{tab:sumstat} show
+the results. Only one of the coefficients out of 15---winner
+incumbency--- is statistically significant at the 5\% level. The
+p-value of the joint significance test is 0.66. The test shows that
+there is no relationship between average price shocks and constituency
+characteristics; our identification strategy relies on this to be the
+case so that we can attach a causal interpretation to the effects of
+price shocks.
+
+\subsection{Mineral Wealth and Political Selection}
+
+This section describes estimates from Equation~\ref{eq:main}, which
+identifies the causal effect of changes in local mineral rents on
+election results. Table~\ref{tab:winner_crim} shows the impact of
+mineral rents on the likelihood that a constituency elects a criminal
+politician. Column 1 shows the full sample estimate with only
+state-year-fixed effects. The point estimate of 0.114 indicates that a
+100\% increase in the value of local mineral wealth over the five year
+period before an election increases the likelihood of electing a
+criminal politician by 11.4 percentage points.
+
+This estimate comes from a combination of price shock variation in the
+same constituencies over time and cross-sectional price shock
+variation within states. The exogeneity of global price shocks implies
+causal identification can come from both forms of variation. We can
+add location fixed effects as a robustness check; by holding location
+constant, we isolate the variation coming from changes in mineral
+rents over time only. The fixed effects control for
+cross-sectional changes in the baseline mineral structure of regions that
+could be correlated with aggregate changes in the success of criminal
+politicians. However the statistical power of the test is weakened as
+we are using only a subset of the variation in prices. We can add
+district fixed effects for almost the full sample of constituencies;
+to add constituency fixed effects, we need to restrict the sample to
+the subset of places that had two elections after the constituencies
+were redrawn in 2007.\footnote{Because constituencies fall within
+  district boundaries, we can hold districts constant even across the
+  period when constituency boundaries changed, allowing us to include
+  district fixed effects for the full period.}
+
+Columns 2 and 3 show the fixed effect specifications. The change in
+effect size across specifications with and without fixed effects is
+less than half of a standard error; the coefficient stability supports
+the price shock exogeneity assumption. The constituency fixed effect
+point estimate is nearly identical to the Column 1 estimate, but only
+marginally statistically significant (p=0.08) due to the smaller
+sample and very large number of fixed effects. Column 4 shows
+marginal effects from a probit estimation with similar parameters to
+Column 1; the effect size is unchanged.\footnote{The probit regression
+  has fewer observations because our probit implementation excludes 52
+  observations from state-year pairs where there was no variation in
+  the dependent variable. The regressions in columns 1--3 are not
+  materially affected by excluding these same observations.} Because
+of the more limited power of the constituency fixed effect
+specification, we use the district fixed effect specification going
+forward. However, Appendix Table~\ref{tab:con_fe} shows all results
+from Tables~\ref{tab:ed_age} through \ref{tab:eci} with constituency
+fixed effects instead of district fixed effects, which are highly
+similar except where noted.
+
+Based on the point estimate in Column 2, going from the 25th
+percentile price shock (+22\%) to the 75th percentile (+77\%) would
+lead to a 19\% increase in the chance of electing a criminal to
+office. Results are robust to a range of alternate specifications,
+described in Section~\ref{sec:robust}.
+
+Table~\ref{tab:ed_age} tests whether other characteristics of winners
+change in response to mining booms. There is no change in the share of
+winners coming from either of India's major parties (the Indian
+National Congress (INC) and the Bharatiya Janata Party (BJP)), nor are
+there changes in winners' education or net assets. Winners are on
+average 2 years younger in constituencies experiencing mining
+booms. The non-effect on net assets rules out the possibility that the
+selection effect can be explained by a funding advantage of
+mining-affiliated candidates.\footnote{Appendix
+  Table~\ref{tab:app_mean_crim} shows that mineral wealth shocks do
+  not have an impact on either the share of candidates facing charges
+  (Columns 1--3) or on the likelihood that the runner up faces charges
+  (Columns 4--6). The main result is thus unlikely to be driven by the
+  entry of criminals into politics.}
+
+In Table~\ref{tab:winner_violence}, we test whether mineral wealth
+shocks have different effects on the success of candidates charged
+with certain types of crimes. In Column 1, the dependent variable is
+an indicator that takes the value one if the elected representative
+has been charged with a serious violent crime, which we define as an
+actual or attempted assault, armed robbery, homicide, kidnapping or
+sexual assault. Column 2 shows the impact of a mineral wealth shock on
+the probability of electing a candidate charged with a non-violent
+crime, which we define as all crimes other than those used in Column
+1. The criminal selection effect is driven entirely by individuals
+charged with violent crimes; the difference in estimates between the
+two columns is significant at p\textless 0.01. In Columns 3 and 4, we
+similarly test for separate impacts on winners charged with
+corruption-related crimes and winners charged with
+non-corruption-related crimes.\footnote{We define corruption-related
+  crime as theft from government, manipulation of elections, and
+  illegally influencing or attempting to influence actions of public
+  servants.} The p-value on the difference is 0.88. High mineral rents
+thus cause the election not only of criminal candidates, but
+specifically of candidates charged with violent crimes.\footnote{The
+  test does not rule out the possibility that corrupt politicians are
+  also doing well in these areas. First, many violent politicians are
+  also accused of crimes of corruption. Second, corruption may be less
+  likely to lead to formal criminal charges than violence due to the
+  lower severity and visibility of corruption.} While more violent
+politicians are successful when mineral rents are high, note that
+predictions on the actual level of political violence are
+ambiguous. For example, the threat of violent retribution could lead
+to a decline in actual violence.
+
+Criminals could win more elections when rents are high because: (i)
+voters pay less attention during mining booms, perhaps because of good
+economic fortune; (ii) voters prefer criminal candidates; or (iii)
+criminal candidates or their agents exert greater effort to win
+elections (whether legally or illegally).  To test whether voters pay
+less attention during mining booms, we look at standard measures of
+electoral competitiveness in Table~\ref{tab:eci}.  Changes in
+political competition are not statistically significant, though point
+estimates suggest marginal increases in competition following mining
+booms. Incumbent win advantages fall, while turnout and the effective
+number of parties (an inverse herfindahl measure) marginally
+increase.\footnote{The positive effect on the effective number of
+  parties becomes statistically significant when we include constituency
+  fixed effects (Appendix Table~\ref{tab:con_fe}).}  We can rule out
+even small declines in turnout or the number of parties; voter
+disinterest thus does not appear to explain the success of criminal
+candidates.
+
+It is difficult to disentangle changes in voter preferences from
+changes in candidate effort; we observe voter choices from a
+constrained set that is itself affected by the mining boom
+\cite{Pande2011,shaukat2018}. This said, the existing literature
+suggests that, all things equal, voters systematically prefer
+non-criminal candidates \cite{Banerjee2012b,Chauchard2014a} and that
+outcomes are worse under criminal candidates
+\cite{Chemin2012,Prakash2014}. The absence of other changes in winning
+candidate characteristics (Table~\ref{tab:ed_age}) also suggests that
+voter preferences over candidates have not dramatically changed in
+response to expected mineral rents.
+
+\subsection{Mineral Wealth and Behavior of Elected Officials}
+
+The results so far describe a selection effect. Criminal politicians,
+specifically those charged with violent crimes, are more likely to be
+elected when local mineral rents are high. In Table~\ref{tab:ts}, we
+examine how the behavior of a given politician changes when he or she
+is exposed to high mineral rents. This table examines the impact of
+mineral wealth shocks that occur after the politician has entered
+office, and therefore holds constant the selection effect.  Column 1
+of Table~\ref{tab:ts} shows the impact of the mineral wealth shock
+from the first to the fifth and last year of a politician's electoral
+term, which is the unexpected price shock during his or her term. The
+dependent variable is the log change in the elected politician's
+assets from the beginning to the end of the electoral term. A doubling
+of local mineral wealth causes elected politicians' assets to increase
+by 25 log points over the electoral term. The estimate indicates that
+going from the 25th to the 75th percentile price shock would increase
+leader assets by 13 log points over a five-year electoral term, or an
+annualized 3.3\% growth premium.\footnote{Note that the underlying
+  variation in these tests is cross-sectional, as the test requires
+  data on a candidate in two successive elections with the same
+  constituency boundaries and each constituency appears in our sample
+  at most two times. Nevertheless, these estimates are causally
+  identified as long as price shocks are exogenous to local political
+  matters. The stability of the coefficients in the prior section to
+  district and constituency fixed effects, along with the robustness
+  of these estimates to the inclusion of prior and future price shocks,
+  suggests that these shocks are indeed exogenous and driving
+  political behavior change.}
+
+To test whether this asset gain is
+unique to winners or is something happening to all members of the
+political class, we add runners up to the specification in Column 2
+and interact the price shock with a dummy variable indicating the
+election winner. We do not find an impact of mining booms on unelected
+candidates; the p-value for the difference between winners and
+non-winners is 0.08.\footnote{The weaker statistical significance of
+  the interaction is in part driven by the small number of runners up
+  that we were able to match across multiple elections. The inclusion
+  of runners up barely changes the coefficient on asset gains of
+  winners, and the point estimate for runners up is very small.}
+
+Motivated by the theory, we test whether asset gains during mining
+booms are driven by the most criminal politicians. In Column 3, we
+interact the price shock and winning variables with an indicator for
+whether the given politician was already charged with a violent crime
+when first elected.  However, the standard error on the interaction
+variable of interest, $Price Shock * Winner * Violent$, is too large
+to rule out either large positive or negative interaction effects;
+there are too few violent politicians identified in the time series to
+precisely estimate this effect.
+
+In Columns 4 and 5, we test whether politicians engage in additional
+crimes when local rents are high.  Specifications are analogous to
+Columns 1 and 2, but the dependent variable is an indicator that takes
+the value one if the number of charges against a candidate has
+increased.\footnote{The clearing of criminal cases (where we would
+  observe a reduction in the number of charges on a candidate's
+  affidavit) is a function of the candidate's behavior before entering
+  office, not of the candidate's behavior in office. We therefore
+  categorize reductions in criminal cases as zeroes. If a candidate
+  receives a new charge and simultaneously clears a charge, we would
+  not be able to observe this in the data. Results are robust to (i)
+  using the log number of criminal cases a candidate is facing as a
+  dependent variable; and (ii) using an indicator variable for any
+  charges faced, limiting the sample to candidates who face no charges
+  at the beginning of their term in office. Only 15\% of incumbents
+  report fewer criminal charges when they contest their second
+  election; 75\% of these report exactly one fewer charge. The sample
+  is smaller than in Columns 1--3 because those include data from
+  \citeasnoun{Fisman2013}, which did not record changes in criminal
+  charges.}  Column 4 shows that a doubling of local mineral wealth
+causes elected politicians to be 21 percentage points more likely to
+face new criminal charges. Column 5 confirms that there is no effect
+on recontesting candidates who were not elected. The estimates are
+robust to alternate deposit and price shock definitions, as well as to
+the inclusion of pre-election price shocks; the latter implies that
+the observed effects are not driven by hypothetical serial correlation
+in price shocks (Appendix Table~\ref{tab:app_ts_lag}).
+
+A limitation of the moral hazard analysis is that we only observe
+winners and runners up who choose to run again. The sample is thus
+selected on unobservables and the results could theoretically be
+driven by differential attrition. However, the attrition effect would
+have to be very large. Out of all election winners in mining
+constituencies, 56\% were identified in the following term. For these
+effects to be driven by selection bias alone, it would have to be the
+case that the exogenous rent shock has a large differential effect on
+who chooses to run again, with selection based on recent increases in
+assets and criminal charges. While it is conceivable that candidates
+who earned the most in office sought re-election, it is difficult to
+see why candidates who were charged with new crimes would have been
+more likely to recontest office. To test whether attrition potentially
+biases the results, Figure~\ref{fig:app_mh_attrition} shows the asset
+and crime change estimates under increasing sample restrictions that
+exclude state-election pairs with the highest levels of
+attrition. Both estimates are statistically significant even when we
+limit the sample to state years where more than 60\% of the sample is
+observed (a sample with only 20\% attrition). The moral hazard effect
+on assets falls from 0.21 to 0.15 under this sample restriction (a
+statistically insignificant change) and the effect on crimes does not
+change at all.
+
+However, only about a third of runners up choose to contest election
+again, making the risk of attrition bias higher for this group. If
+runners up who earn money during mining booms are more likely to exit
+politics (but winners are not), then it would be possible for the
+wealth effect identified here to be an effect on all political
+candidates rather than winners alone.
+
+\subsection{Robustness}
+\label{sec:robust}
+
+In this section, we show that the results are robust to a range of
+alternate specifications and we rule out several confounding
+explanations.
+
+\subsubsection{Alternate Economic Shocks}
+
+Are these results specific to mineral
+wealth, or would they occur with any kind of economic boom? We
+consider here the political impacts of two alternate types of economic
+shocks: shocks to industry and shocks to
+agriculture.
+
+Non-farm employment is a proxy for overall economic activity.  Appendix
+Table~\ref{tab:app_ec_growth_bartik} shows estimates of the impact of
+local non-farm employment shocks on politician selection and behavior,
+using specifications analogous to those in
+Tables~\ref{tab:winner_crim} and \ref{tab:ts}. Panel A defines an
+employment shock as the log change in constituency non-farm
+employment. Panel B uses a Bartik \citeyear{Bartik1991} specification
+to predict the log change in constituency non-farm employment using
+the sectoral composition of employment in the previous census and the
+national change in employment in each sector. Because the Economic
+Census was undertaken intermittently (in 1998, 2005, and 2013), it is
+not possible to match shocks directly to election years. To test for
+adverse selection (Column 1), we match 1998--2005 employment growth to
+elections between 2004 and 2006, and 2005--2013 employment growth to
+elections between 2012 and 2014. To test for moral hazard (Columns
+2--5), we match 2005--2013 employment growth to electoral terms
+beginning in 2005--09 and ending in 2010--14. The employment shock
+thus corresponds approximately to the politicians' terms in office. A
+one point change in the shock variable corresponds to a unit change in
+log employment growth.
+
+There is no effect of generalized non-farm employment shocks on the
+propensity of criminal politicians to gain office, nor on the
+propensity of elected politicians to accumulate assets or new criminal
+charges during their terms.\footnote{Runners up (but not winners) are
+  charged with more crime when jobs are growing, but this effect
+  disappears under the Bartik specification.} We find similarly null
+results if we use wider or narrower sets of outcome years.
+
+We proxy positive agricultural shocks with constituency-level
+precipitation in the month of monsoon arrival. We confirmed that these
+precipitation measures were strong predictors of district-level
+agricultural yields. Rainfall is normalized using the constituency
+data from 1981--2017, thus point estimates are interpreted as effects
+of an additional standard deviation of rainfall. Columns 1 and 2 of
+Appendix Table~\ref{tab:app_precip} respectively show the effect of
+precipitation in the year before election and in the five years before
+election on the propensity to elect a criminal candidate. The effect
+sizes are negligible and the standard errors are precise. Good
+rainfall does not induce criminal politicians to gain office. Columns
+3 through 6 test for the effect of within-term agricultural shocks on
+changes in politician behavior. We do not detect any effect of
+within-term precipitation on the assets or criminal charges of
+election winners.
+
+We can thus rule out that the moral hazard and adverse selection
+effects of mining booms are also experienced with generalized positive
+economic shocks.\footnote{\citeasnoun{Vaishnav2017} similarly finds
+  that economic characteristics or shocks are not good predictors of
+  the election of criminal politicians.}  This suggests that the
+primary results of this paper are indeed uncovering political behavior
+that is specific to the mineral sector.
+
+\subsubsection{Additional Robustness Checks}
+
+In Appendix Table~\ref{tab:app_deps_only}
+Columns 1 through 3, we show that the results are robust to defining
+production constituencies as those with deposits strictly within their
+borders, rather than within 10km as we do in the main
+specification. The estimates are marginally larger under all three
+fixed effect specifications, and have comparable statistical
+significance. In Columns 4 through 6, we show estimates of the
+selection effect from all mineral deposit locations, \textit{ignoring
+  production values}, with the price shock in each constituency
+weighted strictly by the number of deposits of each type of
+mineral. The point estimates are approximately half of those reported
+in Table~\ref{tab:winner_crim} but remain highly statistically
+significant, reflecting that approximately half of mineral deposits
+are productive. 
+
+In Appendix Table~\ref{tab:app_alt_pshock_regs} we show results from
+specifications based on alternate decisions on the construction of the
+data. In our main result, we define constituency mineral production as
+the mean value of mineral production across years 1990--2013. Column 1
+shows the main specification using the pre-sample years
+1990--2003. This shrinks the sample by excluding constituencies that
+only began mineral production during the sample period, but the
+selection effect is in fact stronger in this subsample and is equally
+robust to inclusion of constituency fixed effects (not shown). Column
+2 shows results using a price shock calculated from $t=-5$ to $t=0$
+instead of $t=-6$ to $t=-1$, where $t=0$ is the election year. Results
+are not changed. We next show robustness to the use of different
+production thresholds for sample inclusion. Column 3, 4, and 5
+respectively define mineral constituencies as those with (3) any
+positive production; (4) at least \$50,000 in production in one year;
+and (5) at least \$200,000 in one year (i.e. half and double the
+threshold used in Table~\ref{tab:winner_crim}). As expected, the lower
+thresholds lead to slightly smaller point estimates, but all are
+similar and statistically significant.  Column 6 shows the main
+estimates with standard errors clustered at the state level rather
+than the district level. The standard errors rise marginally; the
+p-value is 0.03. In Column 7, we show a placebo estimate from a
+specification in mineral deposit locations that report \textit{no}
+production. The treatment effect on criminal selection here is zero,
+and statistically distinguishable from the main estimate in
+Table~\ref{tab:winner_crim}.
+
+Appendix Table~\ref{tab:app_ts_robust} presents comparable
+specifications for the moral hazard tests. Columns 1 and 2 show the
+effect of post-election mineral rent shocks on asset and crime
+accumulation respectively, using only the location of mineral deposits
+and ignoring production data. Columns 3 and 4 define production using
+all years of data. Columns 5 and 6 define mineral constituencies at
+the lower production threshold, and Columns 7 and 8 do so at the
+higher production threshold. Estimates are all substantively similar
+to those presented in Table~\ref{tab:ts} and highly statistically
+significant.
+
+Appendix Table~\ref{tab:app_spill} tests for spatial spillovers. For
+each mining constituency, we measure the impact of the price shock on
+the criminality of the winning politician in the set of its nearest
+neighbors, defining neighbors as the set of constituencies where the
+centroid-to-centroid distance is less than 50km. The table shows that a
+constituency's own price shock is closely related to the probability
+of electing a criminal winner, but the price shocks in neighboring
+constituencies (controlling for the own-price shock) have no
+relationship with winner criminality.
+
+Appendix Table~\ref{tab:app_crime_alt} shows that the moral hazard and
+adverse selection effects on crime are robust to alternate definitions
+of the winner's criminality. Results on the number of crimes and log
+number of crimes are highly significant in both specifications. A
+pre-election doubling in mineral prices causes a 20 log point increase
+in the number of crimes facing the election winner; a post-election
+doubling in mineral prices causes a 21 log point increase in crimes
+for the election winner.
+
+Next, we test the possibility that results are driven entirely by iron
+and coal, the two minerals where India may not be a price taker in
+international markets, which represent 75\% of India's mineral
+output value. Appendix Table~\ref{tab:app_no_iron_coal_regs} shows estimates
+from the main specification with price shocks that exclude shocks to
+coal and/or iron deposits (Columns 1--3). We then drop all
+constituencies that contain any productive coal and/or iron deposits
+(Columns 4--6). The effect of mineral price shocks on politician
+criminality is large, statistically significant, and of similar
+magnitude in all cases.
+
+We next test whether conflict could be a driver of our results.  The
+Naxalite insurgency in India during the sample period has been
+frequently linked by observers to mineral wealth, though
+\citeasnoun{Ghatak2017} note that the empirical data supporting these
+links remains weak. In Appendix Table~\ref{tab:app_no_iron_coal_regs},
+we show that there is little effect on the main result of excluding
+either the four states with the largest Naxalite presence (Column 7),
+or the set of districts with any Naxalite-related deaths between 2005--10
+(from \citeasnoun{Ghatak2017}, Column 8). We find similar null results
+when we exclude iron, coal, or Naxalite places from the moral hazard
+estimations.
+
+A final concern might be that criminal politicians relocate across
+constituencies, moving to places where rents are high. If this was the
+case, the SUTVA assumption would be violated and we would be at risk
+of overestimating the effect of mining shocks on the overall success
+of criminal politicians. To test whether this is driving our results,
+we use the candidate time series to identify candidates who change
+constituencies from one election to the next. We then test for the
+selection effect in the subset of constituencies where the winning
+candidate is recontesting the same constituency as in the previous
+electoral term. Because of the redelimitation of constituency
+boundaries in 2007, many constituencies have had some boundaries
+changed. We thus calculate the centroid of each constituency, and
+measure the distance between the centroid of subsequent constituencies
+contested by a single candidate. The median candidate has moved 1.3km
+from one election to the next, relative to an average constituency
+diameter of 46km. In the columns of Table~\ref{tab:app_fixed_loc}, we
+respectively show that the effect of a mining boom on criminality is
+positive and highly significant in the set of constituencies for which
+we can identify the winner in the previous electoral term (Column 1),
+and in the set of constituencies where that winner has moved less than
+20km, 10km, and 5km since the last election (Columns 2, 3, and
+4).\footnote{Samples are smaller than those in
+  Table~\ref{tab:winner_crim} because we could not match every winning
+  candidate in a previous election. Results are similar if we define
+  non-movers as those in constituencies that change less than 50\% of
+  their area after the redistricting.}
+
+\section{Discussion}
+\label{sec:disc}
+
+We have provided evidence that mineral wealth attracts criminal
+politicians and that politicians commit more crimes and gain more
+wealth during mining booms. What exactly is the nature of the
+interactions between politicians and mining firms?  Like many other
+studies that deal with illegal behavior, we do not have empirical data
+on what exactly politicians are doing to profit from the mineral
+sector, nor are we aware of data on mine-specific revenues and
+profits. However, we can gain some insight into this question from the
+other literature on firms and politicians in India, as well as the
+theoretical literature on politics and violence.
+
+Politicians and mining firms have a great deal to offer to each other.
+State-level politicians' \textit{de facto} primary role is to act as
+fixers, or as intermediaries between citizens, firms and the state:
+they resolve local disputes outside of the court system, control local
+bureaucrats (including law enforcement officials), and control access
+to licenses and permits
+\cite{Jensenius2013a,Iyer2012a,an2017pols}. Mining firms require more
+of these inputs than other firms due to the inherent nature of their
+activities: they require land permits and environmental clearances,
+and frequently contest territory with other land users. Mining firms
+also frequently operate at the margin of illegality, in India as well
+as around the world \cite{Africapp2013}, necessitating a relationship
+with authorities in control of law enforcement.
+
+Politicians in India in turn rely heavily on firms that can generate
+untraceable cash. Political campaigns are extremely expensive and
+official campaign spending limits are extremely low; the entire
+political process thus depends heavily on illegal ``black money''
+contributions \cite{Vaishnav2017,Chauchard2018}. Politicians and
+influential citizens and firms are thus ubiquitously entwined in
+illegal contracts.
+
+The prevalence of violence among the criminal charges of so many
+politicians is also informative.  If politicians are extorting mining
+firms in exchange for government goods like permits and licenses, then
+it is not clear why violent politicians would be more successful.
+Indian politicians have a substantial ability to hold up mining firms
+without recourse to violence. Further, anecdotal review of reports in
+the Indian media suggests that activists tend to be on the receiving
+end of violence more often than mining executives.
+
+In contrast, if politicians are colluding with firms to facilitate
+illegal mining, then the literature suggests a clear role for
+violence.  Illegal business activities often rely upon non-state
+actors, such as mafias, who can enforce contracts and protect private
+property with the threat of violence, exactly because the state does
+not provide these services to black market actors. Mafias can
+further intimidate public officials and whistle-blowers who could
+otherwise profit from exposing illegal activity
+\cite{Gambetta1996,Bandiera2003,Chimeli2011}\footnote{Indian media
+  have described a coal mafia, iron mafia and sand mafia, among
+  others, which have been implicated in dozens of murders
+  \cite{Bhowmick2011,Paul2015}. \citeasnoun{Skarbek2011} provides a
+  useful literature review on the essential role of violence to
+  organized crime activity. The notion that politicians use
+  violence to facilitate illegal activity is distinct from political
+  violence that aims to influence public policy, as described by
+  \citeasnoun{DalBo2003}, \citeasnoun{Acemoglu2013a}, and
+  \citeasnoun{Alesina2019}. But like these other forms of political
+  violence, it leads to a political equilibrium that benefits criminal
+  politicians and their allies at the expense of citizens.}.
+
+The literature on criminal politicians in India fits well with a
+theory of politicians as mafiosos. A large share of criminally-accused
+politicians in our sample face charges for serious violent
+crimes. Their willingness to resort to violence may make them more
+effective fixers by helping them to intimidate public officials and
+other agents \cite{Vaishnav2017}. Criminal politicians are even known
+to deliberately engage in public acts of violence, to demonstrate that
+they are effective at acting outside of the law
+\cite{Witsoe2009a,Berenschot2011a,Vaishnav2017}.\footnote{Vaishnav (2017): ``What matters most is that voters believe Shiv Sena politicians are willing and able to use violence to assert the rights of the common man vis-a-vis the state or other potential threats. [...] The criminality perpetuated by thuggish players in politics is instrumental rather than a sign of pathologically deviant behavior.''}
+
+The combination of qualitative and quantitative evidence suggests that
+mining firms and politicians both benefit from their relationship. In
+this paper, we are only able to provide evidence of the crimes
+and benefits on the politician side of the ledger. Empirical
+examination of whether and how mining firms benefit from criminal
+politicians would be a challenging but worthwhile future research
+enterprise.
+
+% \footnote{Compared with the other settings where
+%   political violence has been studies, India is distinct in that
+%   politicians commit violent crimes themselves, rather than having
+%   them committed by arms-length associates. \citeasnoun{Vaishnav2017}
+%   argues that this represents a form of vertical integration that
+%   allows politicians to capture more of the rents from violent
+%   activity, perhaps because they perceive a low risk of being
+%   punished.}
+
+\section{Conclusion}
+\label{sec:conc}
+
+The hidden nature of the transactions between politicians and mining
+firms makes it challenging to describe empirically. Our paper shines
+light on several dimensions of this relationship.
+
+We show that rising mineral rents lead to worse political outcomes,
+even in the absence of fiscal revenue windfalls.  Mineral rents appear
+to accrue directly to the political players with the most informal
+influence over the operations of local firms, likely through their
+\textit{de facto} role as local intermediaries between firms and the
+state. This finding extends a literature that has identified general
+deterioration in political outcomes but has not tied them to
+politicians with direct influence over firms. The politicians that we
+study do not experience budget increases relative to the other
+politicians in their state, and they have no formal authority over
+mining firms. Our interpretation is that politicians are paid off to
+illegally facilitate the many aspects of mining operations that
+require administrative action from government officials, such as
+permitting, environmental enforcement, and suppression of dissent.
+
+Our study also shows distinct evidence for adverse selection and moral
+hazard effects of natural resource wealth; both prove to be
+economically important. Increases in mineral rents lead more criminal
+politicians to gain office, and they lead politicians already in
+office to engage in worse behavior.
+
+Finally, we provide evidence of a direct link between rent-seeking
+opportunities and the success of violence-using politicians. Violence
+on the part of politicians may be both a tool and a signal of 
+politicians' willingness to take illegal actions that benefit their
+allies.
+
+Mining operates at the margins of illegality around the world, and is
+often associated with human rights abuses, corruption and
+violence. These bad outcomes are likely to be exaggerated when
+political actors collude with or are captured by the mining
+industry. Improving the transparency around the interactions between
+bureaucrats, politicians and firms in this sector will be a useful
+step on the path to translating mineral riches into citizen welfare.
+
+%%%%%%%%%%%%%%
+%% APPENDIX %%
+%%%%%%%%%%%%%%
+\newpage
+\singlespace
+\begin{appendix}
+  
+  %%%%%%%%%%%%%%%%%%
+  %% BIBLIOGRAPHY %%
+  %%%%%%%%%%%%%%%%%%
+  \newpage
+  \singlespace
+  \bibliographystyle{aer}
+  \bibliography{\HOME/ddl/tools/tex/master}
+
+  \newpage
+  \singlespace
+  
+  %%%%%%%%%%%%
+  %% TABLES %%
+  %%%%%%%%%%%%
+  \input{mining_tables}
+  %%%%%%%%%%
+  %% FIGURES
+  %%%%%%%%%%
+  \input{mining_figs}
+  
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  %% APPENDIX FIGURES AND TABLES %%
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \newpage
+  \section{Appendix For Online Publication: Additional figures and tables}
+  
+  % reset appendix counters and prefix with C
+  \setcounter{table}{0}
+  \renewcommand{\thetable}{A\arabic{table}}
+  \setcounter{figure}{0}
+  \renewcommand{\thefigure}{A\arabic{figure}}
+  \label{app:more_figs}
+  \input{mining_app_figs}
+  
+  \newpage
+  %%%%%%%
+  % MODEL
+  %%%%%%%
+  \section{Appendix For Online Publication: A Model of Collusion Between
+    Firms and Politicians}
+  \label{sec:model}
+  \input{mining_app_model}
+  
+\end{appendix}
+
+\end{document}
+

@@ -1,0 +1,303 @@
+\doublespacing
+
+In this section, we present a political agency model to elucidate the
+channels by which resource extraction operations influence the
+behavior of politicians. The model is in the spirit of the career
+concerns model of \citeasnoun{Persson2000}, which
+\citeasnoun{Brollo2009} extend to allow endogenous entry of
+politicians. Our model is oriented toward understanding rent-seeking
+through illegal collusion between politicians and firms.
+
+We focus on collusion between politicians and firms because that
+relationship is suggested by the other literature on mining firms in
+India and indeed in many other places around the world. Models of
+politicians and firms have more commonly focused on the case where
+politicians extract rents from firms to the detriment of those firms
+\cite{Shleifer1994}. A model in that spirit would generate similar
+predictions to those that we describe below, but it fits less well
+with the qualitative evidence from India. Further, the facilitation of
+black markets is widely associated in the literature with the presence
+of violent actors
+\cite{Tilly1985,Gambetta1996,Bandiera2003,Chimeli2011,Skarbek2011}.
+
+We focus on two features of the resource extraction sector. First, the
+mining sector generates rents, which can be expropriated by
+politicians through their control over the regulatory inputs required
+by mining firms. Second, mining is rife with illegality, both in India
+and in other developing countries. This increases the dependence of
+firms on local authorities, and raises the relative returns to both
+politicians and firms willing to engage in illegal activity.
+  
+Consider a single mining firm that operates in a constituency
+represented by a single politician. The mining operation has a high
+fixed cost and a low marginal cost; the price of output is such that
+the firm is profitable.  Politicians have a type that is characterized
+by returns to illegal behavior $\theta \in (0,1)$. A high $\theta$
+could represent a low risk aversion, indicating a willingness to risk
+being caught and punished for crime. It could also represent a set of
+skills that increase returns from criminal activities, such as a
+propensity toward violence, or connections to criminal networks and
+other corrupt officials.\footnote{We do not take a stand in the model
+  on the relationship between $\theta$ and the politician's ability to
+  provide services to constituents. \citeasnoun{Brollo2009} assume
+  that corrupt politicians provide worse services to citizens;
+  \citeasnoun{Vaishnav2017} argues they are better at providing
+  services, in part because the formal state does such a poor job.}
+Politicians who are caught in illegal activities pay a formal legal
+punishment and may face worse odds of re-election.\footnote{While we
+  view it as unlikely that voters would reward a politician for being
+  convicted, the model only requires that the punishment from being
+  caught outweighs any electoral benefit.}
+
+We intentionally treat $\theta$ as a generally propensity toward crime
+that is not specific to any type of crime, as this appears to fit the
+context. Qualitative evidence suggests that a willingness to commit
+crimes for one's party organization or local bosses is used as an
+intentional signaling strategy. Such politicians may wish it to be
+known that they are effective at acting outside of the law
+\cite{Witsoe2009a,Berenschot2011a,Vaishnav2017}.
+
+The model has two periods. In the first period, each candidate
+chooses an election campaign effort level $e$, with a convex cost
+$f(e)$. This could be a time cost or a financial cost. Election
+outcomes cannot be predicted with certainty and the probability of
+getting elected is a concave function of effort, which we denote
+$\pi(e)$. The candidate's utility function is:
+
+\begin{equation}
+U = \pi(e)g(\cdot) - f(e)\text{,}
+\end{equation}
+
+\noindent where $g(\cdot)$ is the utility gain from getting
+elected, and includes the continuation value of future elections.
+
+In the second period, in exchange for payment, the elected politician
+can take an illegal action that increases the firm's output, such as
+granting an environmental clearance or land use permit that would have
+been rejected by the formal process.\footnote{While the action itself
+  may be legal or illegal, the exchange of the action for payment is
+  illegal. Other actions could be expediting a permit that would have
+  been granted anyway (a less serious crime), or arranging for police
+  to arrest or intimidate local activists (a more serious crime).}
+The action raises the firm's output by an increasing concave function
+$q(a)$; more serious crimes (with higher $a$) have bigger effects on
+output.\footnote{Any crimes for which the marginal profit is not
+  increasing in the severity of the crime would be dominated choices,
+  and thus not considered. We could model criminal competency by
+  assuming that $q()$ is a positive function of $\theta$; this
+  strengthens the predictions below because the politician trades off
+  the increase in $q()$ against the cost of crime, which is decreasing
+  in $\theta$.}  The action increases the firm's profit by $\mu q(a)$,
+where $\mu$ is the mineral markup, or the difference between the price
+and extraction cost of the mineral. If the politician takes the
+illegal action, the rents are shared according to the Nash Bargaining
+solution. We assume equal discount rates for simplicity but the model
+results do not depend on this assumption, as long as the difference in
+discount rates is not extreme.  The utility cost of illegal action is
+$\frac{c(a)}{\theta}$, where $c()$ is a convex increasing function of
+the severity of the action $a$.  The cost function encapsulates the
+probability of being caught, the punishment conditional upon being
+caught, and any future electoral consequences. High $\theta$
+politicians pay a lower utility cost for committing a given crime.
+
+Equation~\ref{eq:gain} summarizes the politician's net utility from
+the illegal action:
+%
+\begin{equation}
+\label{eq:gain}
+g(a,\mu,\theta) = \frac{1}{2} \big(\mu q(a) - \frac{c(a)}{\theta}\big)\text{.}
+\end{equation}
+
+\noindent We solve the model by backward induction. In the second
+period, the politician
+chooses $a$ to maximize rents, trading off profit against the risk and
+cost of
+getting caught. The first order condition is:
+%
+\begin{equation}
+\label{eq:foc1}
+\mu q'(a^*)=\frac{c'(a^*)}{\theta}\text{.}
+\end{equation}
+
+\noindent Under Inada conditions, any politician with $\theta$ strictly greater
+than zero will choose $a^* > 0$ and commit at least some illegal
+action.\footnote{In the words of a four-time Chief Minister of Uttar
+  Pradesh, ``Even an honest MLA [politician] gets a [10\%] kickback on
+  discretionary spending'' \cite{Vaishnav2017}.}
+
+If the price of mineral output, and thus the mineral markup $\mu$
+rises, then crime severity $a^*$ must rise according to
+Equation~\ref{eq:foc1}.\footnote{Specifically,
+  $\frac{\partial{a^*}}{\partial{\mu}} =
+  \frac{q'(a^*)}{\frac{c''(a^*)}{\theta}-\mu q''(a^*)}$.}
+Since $\mu$ and $a^*$ are rising, the
+politician's rents in Equation~\ref{eq:gain} must rise as
+well.  This gives us the moral hazard result: when mineral rents are
+high, politicians provide more illegal services to firms and both
+firms and politicians earn greater rents from mining operations.
+
+We now consider how politician type affects the effort exerted to
+obtain office. Each candidate chooses an effort level such that the
+marginal gain in terms of rents in office is equal to the marginal
+cost of effort required to win:
+%
+\begin{equation}
+f'(e^*) = \frac{1}{2} \pi'(e^*) \big( \mu q(a^*) - \frac{c(a^*)}{\theta}\big)\text{.}
+\end{equation}
+%
+The change in effort in response to an increase in the mineral markup
+is given by:
+%
+\begin{equation}
+\frac{\partial e^*}{\partial \mu} = \frac{1}{2} \frac{\pi'(e^*)\cdot
+  q(\mu,\theta)}{f''(e^*)-\pi''(e^*)\cdot g(\mu,\theta)}\text{.}
+\end{equation}
+
+\noindent The expression is positive. Politicians earn greater rents from office
+when mineral rents are high, and therefore all candidates try
+harder to win elections when mineral prices are high.
+This has the biggest effect on effort when $q(\cdot)$ is large, and
+thus when $\theta$ is large---that is, on the candidates with the
+highest propensity toward illegal activity.  High mineral values will
+increase the probability that a criminally inclined candidate gets
+elected, unless the mineral shock also decreases voters' preferences
+for criminal candidates. This is the adverse selection
+effect.\footnote{For simplicity, we have assumed that mineral wealth
+  does not affect voter preferences over candidate type. Voter
+  preferences could shift in either direction. They may dislike
+  criminal candidates, and pay closer attention to elections when
+  rents are high, thus mitigating the adverse selection
+  effect. Alternately, they may prefer criminal candidates if they are
+  perceived to facilitate mining operations.  In the empirical part of
+  this paper, we observe a joint outcome of voter preferences and
+  candidate effort. The empirical test of the selection effect is thus
+  jointly testing for the sum of the increase in candidate effort and
+  any voter shift \textit{toward} the more criminal candidate.}  Both
+the adverse selection and moral hazard effects lead to increased
+illegal behavior by politicians in office when mineral rents are
+high. These effects are likely not only additive, but reinforcing: the
+moral hazard effect is worse for candidates who are more criminally
+inclined. 
+
+The model makes three key predictions, which we test in this
+paper. First, positive mineral wealth shocks in the first period (i.e.
+before elections take place) will lead criminal politicians to win
+more elections. Second, positive mineral wealth shocks in the second
+period (i.e. after candidates have been selected into office) will
+cause politicians in office to gain wealth and commit more crimes. By
+focusing on shocks that occur after candidates win elections, we can
+thus isolate the moral hazard effect. Third, the wealth and crime
+gains may occur for all types of politicians, but should be strongest
+for the most criminal types.
+
+
+\subsection{Modeling Electoral Fraud}
+\label{app:model_fraud}
+
+This subsection extends the model by considering the possibility that
+politicians can use criminal activities or violence to win elections.
+
+The structure is as before, but we assume that crime with the purpose
+of winning elections, denoted by $a_e$, is distinctly chosen from
+crime to increase mining output, which we call illegal mining and
+denote by $a_m$. Both are punished with the same convex increasing
+cost function $\frac{c(a)}{\theta}$. As above, we use backward
+induction. We first solve for second period rents and criminal behavior
+conditional on winning an election. Then, we solve for electoral
+effort and electoral crime in the first period.
+
+The elected politician earns the following rent, which is unchanged
+from the model above:
+
+\begin{equation}
+g(a_m,\mu,\theta) = \frac{1}{2} \big(\mu q(a_m) -
+\frac{c(a_m)}{\theta}\big)\text{.}
+\end{equation}
+
+The first order condition for the extent of illegal mining is unchanged:
+\begin{equation}
+\mu q'(a_m^*)=\frac{c'(a_m^*)}{\theta}\text{.}
+\end{equation}
+
+The politician's utility function is as follows. We add a
+choice over electoral crime, and a cost function for electoral crime.
+
+\begin{equation}
+U = \pi(e,a_e)\frac{1}{2} \big(\mu q(a_m) -
+\frac{c(a_m)}{\theta}\big) - f(e) - \frac{c(a_e)}{\theta}\text{.}
+\end{equation}
+
+As in the primary model, $e$ represents effort to win elections, $a_m$
+is the extent of illegal mining, $\mu$ is the mineral markup, $q()$ is
+the output from illegal mining activities,
+$\theta$ is a measurement of propensity toward crime, and $f(e)$ is
+the convex cost of electoral effort. We have added additional terms
+$a_e$, which denotes the extent of electoral fraud, and $c(a_e)$, the
+convex cost of electoral fraud, which incorporates both the
+probability of getting caught and the utility punishment. The
+probability of winning an election $\pi{e,a_e}$ now depends positively
+on effort and electoral crime. This function is concave in both $e$
+and $a_e$, and we assume for simplicity that the cross-partial
+$\pi_{ea_e}$ is zero.\footnote{If the cross-partial is not zero, it is
+  most likely positive, as investment in the capacity to commit one
+  kind of crime (e.g. by hiring thugs or bribing police officers)
+  likely lowers the cost of committing other crimes. A positive
+  cross-partial derivative would further increase the adverse
+  selection effect because it raises the return to electoral
+  crime for politicians already involved in illegal mining.}
+
+Candidates now jointly choose electoral effort and electoral
+crime. The first order conditions are similar for these two choices,
+but the amount of electoral crime depends directly on politician type:
+\begin{equation}
+\frac{\partial f}{\partial e^*} = \frac{1}{2} \frac{\partial \pi}{\partial e^*}
+\big( \mu q(a_m^*) - \frac{c(a_m^*)}{\theta}\big)
+\end{equation}
+
+
+\begin{equation}
+\frac{1}{\theta} \frac{\partial c}{\partial a_e^*} = \frac{1}{2} \frac{\partial
+  \pi}{\partial a_e^*} \big( \mu q(a_m^*) -
+\frac{c(a_m^*)}{\theta}\big)
+\end{equation}
+
+The moral hazard effect remains unchanged, because the decision about
+how much illegal mining to facilitate happens only conditional upon
+having been elected:
+
+\begin{equation}
+\frac{\partial a_m^*}{\partial \mu} =
+\frac{q'(a_m^*)}{\frac{c''(a_m^*)}{\theta}-\mu q''(a_m^*)}
+\end{equation}
+\newline
+
+There are now two adverse selection comparative statics. When the
+mineral markup $\mu$ rises, candidates can change their effort levels,
+and they can change their willingness to engage in electoral
+crime. The expressions
+for these comparative statics are calculated from the election effort
+and crime first order conditions:
+
+\begin{equation}
+\frac{\partial e^*}{\partial \mu} = \frac{1}{2} \frac{\frac{\partial
+    \pi}{\partial e^*}q(a_m^*)}{f''(e^*)-\frac{\partial^2\pi}{\partial e^*^2}
+  g(a_m^*,\mu,\theta)}
+\end{equation}
+
+\begin{equation}
+\frac{\partial a_e^*}{\partial \mu} = \frac{1}{2} \frac{\frac{\partial
+    \pi}{\partial a_e^*} q(a_m^*)}{\frac{1}{\theta} \frac{\partial^2
+    c}{\partial a_e^*^2} - \frac{ \partial^2 \pi}{\partial a_e^*^2}
+  g(a_m^*,\mu,\theta)}
+\end{equation}
+
+The first expression is unchanged. The second expression demonstrates
+a second form of adverse selection: mineral rents increase the return
+to electoral crime, and do so especially for high $\theta$
+politicians. This occurs because these politicians facilitate
+more illegal mining $q(a_m^*)$ and thus have greater marginal returns
+to crime when prices are high.
+
+In conclusion, extending the model to give politicians the opportunity
+to commit crimes to win elections strengthens the predictions on the
+adverse selection effect.

@@ -1,0 +1,23 @@
+\setlength{\linewidth}{.1cm} \begin{center}
+\newcommand{\contents}{\begin{tabular}{l*{7}{c}}
+\hline\hline
+ & Baseline   & Shock_{-5,0} & Prod above & Prod above & Prod above & State    & Placebo \\ &  1990-2003 &              &  0   &   USD 50k   &  USD 200k  & Clusters & Fixed Effects &  \\ 
+%PYTHON_HEADER
+                    &         (1)   &         (2)   &         (3)   &         (4)   &         (5)   &         (6)   &         (7)   \\
+\hline
+Price Shock         &       0.136***&       0.134** &       0.087***&       0.086** &       0.120** &       0.097** &       0.029   \\
+                    &     (0.046)   &     (0.054)   &     (0.032)   &     (0.041)   &     (0.048)   &     (0.037)   &     (0.043)   \\
+\hline State-Year F.E.      & Yes & Yes & Yes & Yes & Yes & Yes & Yes \\ 
+       District-Year F.E.   & Yes & Yes & Yes & Yes & Yes & Yes & Yes \\ 
+\hline 
+Mean Dep. Var. & 0.35 & 0.33 & 0.32 & 0.34 & 0.34 & 0.33 & 0.25 \\ 
+%PYTHON_FOOTER
+\hline
+N                   &         720   &         948   &        1726   &        1063   &         780   &         946   &         679   \\
+r2                  &        0.34   &        0.34   &        0.26   &        0.33   &        0.36   &        0.35   &        0.44   \\
+\hline
+\multicolumn{8}{p{\linewidth}}{$^{*}p<0.10, ^{**}p<0.05, ^{***}p<0.01$} \\
+\multicolumn{8}{p{\linewidth}}{\footnotesize \tablenote}
+\end{tabular} }
+\setbox0=\hbox{\contents}
+\setlength{\linewidth}{\wd0-2\tabcolsep-.25em} \contents \end{center}
