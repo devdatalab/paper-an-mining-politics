@@ -40,4 +40,4 @@ do $mcode/a/table_crime_type
 do $mcode/a/table_ts
 do $mcode/a/table_eci
 
-
+cap log close
