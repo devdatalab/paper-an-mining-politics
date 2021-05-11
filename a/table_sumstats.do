@@ -210,7 +210,7 @@ insert_into_file using $out/mining_stats.csv, key(f_test) value(`p') format(%5.2
 /***************************************/
 /* candidate level sum stats (MH part) */
 /***************************************/
-use $tmp/adr_ts2_mine_shocks, clear
+use $mdata/adr_ts2_mine_shocks, clear
 
 /* label vars of interest */
 label var ln_net_assets1 "Log Net Assets (USD)"
@@ -291,7 +291,7 @@ foreach v in incumbent turnout enop_vot bjp inc margin8 {
 /******************************************/
 
 /* load time series data */
-use $tmp/adr_ts2_mine_shocks, clear
+use $mdata/adr_ts2_mine_shocks, clear
 
 /* get lagged price shocks */
 ren year1 year

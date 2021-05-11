@@ -1,4 +1,7 @@
 clear
+ssc install reghdfe
+ssc install ftools
+ssc install estout
 
 /* set the following globals:
 $out: path for output files to be created
@@ -9,6 +12,7 @@ global tmp /scratch/pn/mining_test/tmp
 global mdata /scratch/pn/mining_test/dta
 global mining /scratch/pn/mining_test/dta
 global mcode .
+global PYTHONPATH ./stata-tex
 
 if mi("$out") | mi("$tmp") | mi("$mdata") | mi("$mcode") {
   display as error "Globals 'out', 'tmp', and 'mdata' must be set for this to run."
