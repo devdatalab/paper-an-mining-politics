@@ -6,7 +6,7 @@ global con_controls pop_per_school con_pop rural_pop_share rural_electric_share
 /********/
 /* MAIN */
 /********/
-use $tmp/adr_ts2_mine_shocks, clear
+use $mining/adr_ts2_mine_shocks, clear
 
 /**************/
 /* asset regs */
