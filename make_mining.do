@@ -5,9 +5,10 @@ ssc install estout
 
 /* set the following globals:
 $out: path for output files to be created
-mdata: path to data [intermediate data files will be put here too] */
+$tmp: a temp folder
+$mdata and $mining: path to data (the same path for both of these) */
 
-global out /scratch/pn/mining_test/out
+global out
 global tmp /scratch/pn/mining_test/tmp
 global mdata /scratch/pn/mining_test/dta
 global mining /scratch/pn/mining_test/dta
