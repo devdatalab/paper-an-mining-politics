@@ -6,7 +6,7 @@ Evidence from Mining Booms", <i>Review of Economics and Statistics</i>. A draft 
 Link to data for replication: https://drive.google.com/file/d/1oaiMFVpcyHuFb1qf0ZOrxmR4mVEJoppU/view?usp=sharing
 
 Link to same dataset on the Harvard Dataverse:
-https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi%3A10.7910%2FDVN%2FBMBDFC&version=DRAFT
+https://doi.org/10.7910/DVN/BMBDFC
 
 To regenerate the tables and figures from the paper, take the
 following steps:
