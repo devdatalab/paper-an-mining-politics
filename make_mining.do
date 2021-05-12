@@ -9,8 +9,8 @@ mdata: path to data [intermediate data files will be put here too] */
 
 global out /scratch/pn/mining_test/out
 global tmp /scratch/pn/mining_test/tmp
-global mdata /scratch/pn/mining_test/dta
-global mining /scratch/pn/mining_test/dta
+global mdata ~/secc/frozen_data/mining/restat
+global mining ~/secc/frozen_data/mining/restat
 global mcode .
 global PYTHONPATH ./stata-tex
 

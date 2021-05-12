@@ -161,7 +161,7 @@ global sum_start \begin{tabular}{l r r r r r}\hline\hline Variable & Mean & S.E.
 global sum_end \hline\end{tabular} 
 
 /* list vars to display as decimals here */
-global dec_list " rural_pop_share rural_electric_share ln_net_assets1 any_crim1 num_deps_wt winner_any_crim mean_any_crim winner_ed mean_ed enop_vot turnout inc margin8 "
+global dec_list " rural_pop_share rural_electric_share ln_net_assets1 any_crim1 num_deps_wt winner_any_crim mean_any_crim winner_ed mean_ed enop_vot turnout inc margin "
 
 /**************************/
 /* constituency sum stats */
@@ -200,8 +200,8 @@ foreach v in num_deps_wt value_wt_f2 $con_controls {
 /*******************************/
 prep_f_test
 use $tmp/adr_f_test, clear
-qui areg pshock winner_any_crim mean_any_crim turnout inc enop_vot margin8, absorb(sygroup) cluster(sdygroup)
-test winner_any_crim = mean_any_crim = turnout = inc = enop_vot = margin8 = 0
+qui areg pshock winner_any_crim mean_any_crim turnout inc enop_vot margin, absorb(sygroup) cluster(sdygroup)
+test winner_any_crim = mean_any_crim = turnout = inc = enop_vot = margin = 0
 local p = `r(p)'
 
 // file write fh " \qquad \textit{p-value from F test of joint significance: " %5.2f (`p') "} & & & & & \\"
@@ -244,10 +244,10 @@ use $mining/mining_con_adr, clear
 /* get trailing pshock */
 set_pshock, wt
 replace year = year + 5
-drop ps_wt_glo_f2_m6
-merge 1:1 con_id_joint year using $mining/con_mine_shocks, keepusing(ps_wt_glo_f2_m6)
+drop ps_wt_f2_m6
+merge 1:1 con_id_joint year using $mining/con_mine_shocks, keepusing(ps_wt_f2_m6)
 drop if _merge == 2
-ren ps_wt_glo_f2_m6 lag_pshock
+ren ps_wt_f2_m6 lag_pshock
 
 /* set dataset to main analysis sample */
 reghdfe winner_any_crim pshock base_value $con_controls , cluster(sdgroup) absorb(sygroup)
@@ -257,10 +257,10 @@ keep if e(sample)
 egen winner_crime_govt = rowmax(winner_crime_corruption winner_crime_publicservant winner_crime_election)
 
 /* shorten varnames for tpl file */
-drop winner_assets
+cap drop winner_assets
 ren ln_winner_net_assets winner_assets
 ren winner_crime_govt winner_corrupt
-ren winner_crime_violent_strong winner_violent
+ren winner_crime_violent winner_violent
 
 /* loop over each outcome var */
 foreach v in winner_any_crim mean_any_crim winner_hs_grad winner_age winner_assets winner_corrupt winner_violent {
@@ -276,13 +276,13 @@ use $mining/mining_eci_candidates, clear
 keep if index == 1 & year > 2003
 set_pshock, wt
 replace year = year + 5
-drop ps_wt_glo_f2_m6
-merge 1:1 con_id_joint year using $mining/con_mine_shocks, keepusing(ps_wt_glo_f2_m6)
+drop ps_wt_f2_m6
+merge 1:1 con_id_joint year using $mining/con_mine_shocks, keepusing(ps_wt_f2_m6)
 drop if _merge == 2
-ren ps_wt_glo_f2_m6 lag_pshock
+ren ps_wt_f2_m6 lag_pshock
 
 /* loop over each outcome var */
-foreach v in incumbent turnout enop_vot bjp inc margin8 {
+foreach v in incumbent turnout enop_vot bjp inc margin {
   placebo_reg `v'
 }
 
@@ -296,10 +296,10 @@ use $mdata/adr_ts2_mine_shocks, clear
 /* get lagged price shocks */
 ren year1 year
 replace year = year - 5
-drop ps_wt_glo_f2_m5
-merge m:1 con_id_joint year using $mining/con_mine_shocks, keepusing(ps_wt_glo_f2_m5)
+drop ps_wt_f2_m5
+merge m:1 con_id_joint year using $mining/con_mine_shocks, keepusing(ps_wt_f2_m5)
 drop if _merge == 2
-ren ps_wt_glo_f2_m5 lag_pshock
+ren ps_wt_f2_m5 lag_pshock
 
 /* store data */
 preserve
