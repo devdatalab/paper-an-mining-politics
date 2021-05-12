@@ -49,21 +49,21 @@ prog def con_fe
   areg winner_any_crim pshock base_value $con_controls, cluster(sdgroup) absorb(sygroup)
   keep if e(sample)
   
-  drop if mi(winner_crime_violent_strong)
+  drop if mi(winner_crime_violent)
   foreach v in winner mean {
     egen `v'_crime_govt = rowmax(`v'_crime_corruption `v'_crime_publicservant `v'_crime_election)
   }
-  foreach type in violent_strong govt {
+  foreach type in violent govt {
     gen winner_crime_non_`type' = (winner_any_crim == 1) & (winner_crime_`type' == 0)
   }
   
   eststo clear
   
   /* column 1: violent crimes only */
-  eststo: reghdfe winner_crime_violent_strong pshock $con_controls, cluster(sdgroup) absorb(sygroup con_group) 
+  eststo: reghdfe winner_crime_violent pshock $con_controls, cluster(sdgroup) absorb(sygroup con_group) 
   
   /* column 2: non-violent crimes only */
-  eststo: reghdfe winner_crime_non_violent_strong pshock $con_controls, cluster(sdgroup) absorb(sygroup con_group)
+  eststo: reghdfe winner_crime_non_violent pshock $con_controls, cluster(sdgroup) absorb(sygroup con_group)
   
   /* column 3: corruption crimes only */
   eststo: reghdfe winner_crime_govt pshock $con_controls, cluster(sdgroup) absorb(sygroup con_group) 
@@ -161,7 +161,7 @@ prog def no_iron_coal_regs
   
   /* price shocks not counting coal and/or iron */
   local c 1
-  foreach v in ps_wt_glo_f2_m6_nc ps_wt_glo_f2_m6_ni ps_wt_glo_f2_m6_nic {
+  foreach v in ps_wt_f2_m6_nc ps_wt_f2_m6_ni ps_wt_f2_m6_nic {
     replace pshock = `v'
     label_pshocks
     eststo: reghdfe winner_any_crim pshock base_value , cluster(sdgroup) absorb(sygroup)
@@ -213,12 +213,12 @@ prog def alt_pshock_regs
   set_pshock, wt
   
   /* f0, f1 */
-  replace pshock = ps_wt_glo_f1_m6
+  replace pshock = ps_wt_f1_m6
   eststo: reghdfe winner_any_crim pshock base_value , cluster(sdgroup) absorb(sygroup sdgroup)
   store_depvar_mean y1, format("%04.2f")
 
   /* m5 */
-  replace pshock = ps_wt_glo_f2_m5
+  replace pshock = ps_wt_f2_m5
   eststo: reghdfe winner_any_crim pshock base_value , cluster(sdgroup) absorb(sygroup sdgroup)
   store_depvar_mean y2, format("%04.2f")
 
@@ -484,7 +484,7 @@ prog def ts_robust
   eststo: reghdfe more_crime pshock base_value $con_controls ln_crim1 if winner1 == 1, cluster(sdgroup) absorb(sygroup)
 
   /* f0 */
-  replace pshock = ps_wt_glo_f0_m5
+  replace pshock = ps_wt_f0_m5
   eststo: reghdfe ln_diff_net_assets pshock base_value ln_net_assets1 $con_controls if winner1 == 1, cluster(sdgroup) absorb(sygroup)
   eststo: reghdfe more_crime pshock base_value $con_controls ln_crim1 if winner1 == 1, cluster(sdgroup) absorb(sygroup)
 
@@ -527,8 +527,8 @@ prog def mh_lag_pshocks
   /* get pshock for prior year */
   gen year = year1
   drop ps_wt*
-  merge m:1 con_id_joint year using $mining/con_mine_shocks, keepusing(ps_wt_glo_f2_m5) keep(match) nogen
-  gen pshock_lag = ps_wt_glo_f2_m5
+  merge m:1 con_id_joint year using $mining/con_mine_shocks, keepusing(ps_wt_f2_m5) keep(match) nogen
+  gen pshock_lag = ps_wt_f2_m5
   gen pshock_lag_winner = pshock_lag * winner1
 
   /* set up fixed effect row */

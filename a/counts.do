@@ -267,26 +267,26 @@ qui {
   noi di %55s "Number of cons with deposit + value: " %3.0f (`r(N)')
 
   /* number with price backward looking price shock */
-  obs_check if num_deps`wt' > 0 & value`wt' > 0 & !mi(ps_wt_glo_f0_m6) & `delim', tag(con_id_joint)
+  obs_check if num_deps`wt' > 0 & value`wt' > 0 & !mi(ps_wt_f0_m6) & `delim', tag(con_id_joint)
   noi di %55s "Number of cons with pshock (f0): " %3.0f (`r(N)')
 
-  obs_check if num_deps`wt' > 0 & value`wt' > 0 & !mi(ps_wt_glo_f1_m6) & `delim', tag(con_id_joint)
+  obs_check if num_deps`wt' > 0 & value`wt' > 0 & !mi(ps_wt_f1_m6) & `delim', tag(con_id_joint)
   noi di %55s "Number of cons with pshock (f1): " %3.0f (`r(N)')
 
-  obs_check if num_deps`wt' > 0 & value`wt' > 0 & !mi(ps_wt_glo_f2_m6) & `delim', tag(con_id_joint)
+  obs_check if num_deps`wt' > 0 & value`wt' > 0 & !mi(ps_wt_f2_m6) & `delim', tag(con_id_joint)
   noi di %55s "***Number of cons with pshock (f2): " %3.0f (`r(N)')
 
   /* count constituencies with positive value in 2004 ---> baseline m5 when year == 2009 */
   keep if year == 2009
 
-  obs_check if base_value`wt'_glo_f0_m6 > 0 & !mi(base_value_glo_f0_m6) & `delim', tag(con_id_joint)
+  obs_check if base_value`wt'_f0_m6 > 0 & !mi(base_value_f0_m6) & `delim', tag(con_id_joint)
   local cons_ps_2009_f0_pre `r(N)'
-  obs_check if base_value`wt'_glo_f0_m6 > 0 & !mi(base_value_glo_f0_m6) & !`delim', tag(con_id_joint)
+  obs_check if base_value`wt'_f0_m6 > 0 & !mi(base_value_f0_m6) & !`delim', tag(con_id_joint)
   local cons_ps_2009_f0_post `r(N)'
 
-  obs_check if base_value`wt'_glo_f2_m6 > 0 & !mi(base_value_glo_f2_m6) & `delim', tag(con_id_joint)
+  obs_check if base_value`wt'_f2_m6 > 0 & !mi(base_value_f2_m6) & `delim', tag(con_id_joint)
   local cons_ps_2009_f2_pre `r(N)'
-  obs_check if base_value`wt'_glo_f2_m6 > 0 & !mi(base_value_glo_f2_m6) & !`delim', tag(con_id_joint)
+  obs_check if base_value`wt'_f2_m6 > 0 & !mi(base_value_f2_m6) & !`delim', tag(con_id_joint)
   local cons_ps_2009_f2_post `r(N)'
 
   noi di %55s "Num cons (pre, post) with 2004-2009 price shock (f0): " %3.0f (`cons_ps_2009_f0_pre')  %5.0f (`cons_ps_2009_f0_post')
@@ -298,10 +298,10 @@ qui {
   use $mining/con_mine_shocks, clear
   keep if inrange(year, 2004, .)
 
-  obs_check if base_value_glo_f0_m6 > 0 & !mi(base_value_glo_f0_m6), tag(con_id_joint)
+  obs_check if base_value_f0_m6 > 0 & !mi(base_value_f0_m6), tag(con_id_joint)
   noi di %55s "Num cons with any post-2004 price shock (f0): " %3.0f (`r(N)')
   
-  obs_check if base_value_glo_f2_m6 > 0 & !mi(base_value_glo_f2_m6), tag(con_id_joint)
+  obs_check if base_value_f2_m6 > 0 & !mi(base_value_f2_m6), tag(con_id_joint)
   local cons_ps_f2 = `r(N)'
   noi di %55s "Num cons with any post-2004 price shock (f2): " %3.0f (`r(N)')
 
@@ -310,10 +310,10 @@ qui {
   /*****************************************************/
   use $mining/con_mine_shocks, clear
 
-  obs_check if base_value_glo_f0_m6 > 0 & !mi(base_value_glo_f0_m6), tag(con_id_joint)
+  obs_check if base_value_f0_m6 > 0 & !mi(base_value_f0_m6), tag(con_id_joint)
   noi di %55s "Num cons with any price shock (f0): " %3.0f (`r(N)')
   
-  obs_check if base_value_glo_f2_m6 > 0 & !mi(base_value_glo_f2_m6), tag(con_id_joint)
+  obs_check if base_value_f2_m6 > 0 & !mi(base_value_f2_m6), tag(con_id_joint)
   noi di %55s "Num cons with any post-2004 price shock (f2): " %3.0f (`r(N)')
   
   /********************/
@@ -332,7 +332,7 @@ qui {
   count
   di "`years' years, `cons' cons, `r(N)' obs"
 
-  obs_check if !mi(ps`wt'_glo_f2_m6) & num_deps`wt' > 0
+  obs_check if !mi(ps`wt'_f2_m6) & num_deps`wt' > 0
   noi di %55s "Obs with 5-year price shock : " %3.0f (`r(N)')
   local ps_adr_winner = r(N)
 

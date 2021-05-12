@@ -24,17 +24,17 @@ estadd ysumm
 local ym2: di %04.2f `e(ymean)'
 
 /* pshock -- winners vs losers, interact with baseline violent crime */
-gen pshock_violent = pshock * crime_violent_strong1
-gen winner_violent = winner1 * crime_violent_strong1
-gen pshock_winner_violent = pshock * winner1 * crime_violent_strong1
+gen pshock_violent = pshock * crime_violent1
+gen winner_violent = winner1 * crime_violent1
+gen pshock_winner_violent = pshock * winner1 * crime_violent1
 
 label var pshock_violent "Price shock$_{+1,+5}$ * Violent"
 label var winner_violent "Winner * Violent"
 label var pshock_winner_violent "Price shock$_{+1,+5}$ * Winner * Violent"
-label var crime_violent_strong1 "Violent Crime"
+label var crime_violent1 "Violent Crime"
 
 /* winners vs losers * violence */
-eststo: reghdfe ln_diff_net_assets base_value pshock pshock_violent pshock_winner winner_violent pshock_winner_violent winner1 crime_violent_strong1 ln_net_assets1, cluster(sdgroup) absorb(sygroup)
+eststo: reghdfe ln_diff_net_assets base_value pshock pshock_violent pshock_winner winner_violent pshock_winner_violent winner1 crime_violent1 ln_net_assets1, cluster(sdgroup) absorb(sygroup)
 estadd ysumm
 local ym3: di %04.2f `e(ymean)'
 
@@ -53,7 +53,7 @@ local prefoot `""\hline" "State-Year F.E. & Yes & Yes & Yes & Yes & Yes \\ " "\h
 label_pshocks, m(m5)
 
 /* write output file */
-estout_default using $out/table_ts, prefoot(`prefoot') order(pshock pshock_winner pshock_violent pshock_winner_violent crime_violent_strong1 winner1 winner_violent pshock_winner) 
+estout_default using $out/table_ts, prefoot(`prefoot') order(pshock pshock_winner pshock_violent pshock_winner_violent crime_violent1 winner1 winner_violent pshock_winner) 
 estmod_col_div using $out/table_ts, col(3)
 estmod_header  using $out/table_ts, cstring(" & \multicolumn{3}{c}{\underline{Change in Assets}} & \multicolumn{2}{|c}{\underline{Change in Crime}}")
 estmod_footer  using $out/table_ts, cstring("Mean Dep. Var. & `ym1' & `ym2' & `ym3' & `ym4' & `ym5'")

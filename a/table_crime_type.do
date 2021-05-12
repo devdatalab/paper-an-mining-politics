@@ -12,7 +12,7 @@ areg winner_any_crim pshock base_value $con_controls, cluster(sdgroup) absorb(sy
 keep if e(sample)
 
 /* drop if crimes are unclassified */
-drop if mi(winner_crime_violent_strong)
+drop if mi(winner_crime_violent)
 
 /* define government-related crime category */
 foreach v in winner mean {
@@ -20,7 +20,7 @@ foreach v in winner mean {
 }
 
 /* create complement groups to each of these crime types */
-foreach type in violent_strong govt {
+foreach type in violent govt {
   gen winner_crime_non_`type' = (winner_any_crim == 1) & (winner_crime_`type' == 0)
 }
 
@@ -29,8 +29,8 @@ foreach type in violent_strong govt {
 /******************/
 
 /* get p-value for violent vs. nonviolent */
-qui eststo on: reg winner_crime_violent_strong      pshock  $con_controls i.sygroup i.sdgroup
-qui eststo off: reg winner_crime_non_violent_strong pshock  $con_controls i.sygroup i.sdgroup
+qui eststo on: reg winner_crime_violent      pshock  $con_controls i.sygroup i.sdgroup
+qui eststo off: reg winner_crime_non_violent pshock  $con_controls i.sygroup i.sdgroup
 suest on off, vce(cluster sdgroup)
 di [on_mean]pshock ", " [off_mean]pshock 
 test [on_mean]pshock = [off_mean]pshock
@@ -47,11 +47,11 @@ local govt_p: di %5.2f `r(p)'
 eststo clear
 
 /* column 1: violent crimes only */
-eststo: reghdfe winner_crime_violent_strong pshock $con_controls, cluster(sdgroup) absorb(sygroup sdgroup) 
+eststo: reghdfe winner_crime_violent pshock $con_controls, cluster(sdgroup) absorb(sygroup sdgroup) 
 store_depvar_mean y1, format("%04.2f")
 
 /* column 2: non-violent crimes only */
-eststo: reghdfe winner_crime_non_violent_strong pshock $con_controls, cluster(sdgroup) absorb(sygroup sdgroup)
+eststo: reghdfe winner_crime_non_violent pshock $con_controls, cluster(sdgroup) absorb(sygroup sdgroup)
 store_depvar_mean y2, format("%04.2f")
 
 /* column 3: corruption crimes only */

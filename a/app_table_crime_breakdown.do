@@ -6,7 +6,7 @@ keep if position == 1
 
 /* set corruption and violent definitions */
 egen crime_govt = rowmax(crime_corruption crime_publicservant crime_election)
-gen crime_violent = crime_violent_strong
+gen crime_violent = crime_violent
 
 /* define crime list for output table */
 global crime_list num_crim any_crim crime_govt crime_violent crime_property crime_disorder crime_white_collar crime_libel

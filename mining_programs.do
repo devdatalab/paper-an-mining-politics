@@ -25,7 +25,7 @@ prog def label_pshocks
     cap label var pshock_violent "Price shock\$_{+1,+5}$ * Violent"
     cap label var winner_violent "Winner * Violent"
     cap label var pshock_winner_violent "Price shock\$_{+1,+5}$ * Winner * Violent"
-    cap label var crime_violent_strong1 "Violent Crime"
+    cap label var crime_violent1 "Violent Crime"
   }
   else {
     cap label var pshock "Price shock\$_{-6,-1}$"
@@ -106,7 +106,7 @@ prog def set_pshock
   /* define pshock and base_value */
   /* [preserving pshock value label] */
   cap gen pshock = .
-  replace pshock     =    ps`lg'`wt'_glo_f2_`m'
+  replace pshock     =    ps`lg'`wt'_f2_`m'
   gen base_value = ln(value`lg'`wt'_f2)
 
   /* label vars */
@@ -370,7 +370,7 @@ prog def label_mining_vars
   cap label var vshock "Value shock"
   cap label var winner_any_crim "Criminal winner"
   cap label var mean_any_crim "Share criminal candidates"
-  cap label var ln_pr4_value_wt_glo_f0_m6 "Log Mineral value"
+  cap label var ln_pr4_value_wt_f0_m6 "Log Mineral value"
 
   cap label var base_value "Log Base Mineral Output"
   cap label var ln_fisman_net_assets1 "Log Net Assets (baseline)"
