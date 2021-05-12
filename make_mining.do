@@ -9,9 +9,9 @@ $tmp: a temp folder
 $mdata and $mining: path to data (the same path for both of these) */
 
 global out
-global tmp /scratch/pn/mining_test/tmp
-global mdata ~/secc/frozen_data/mining/restat
-global mining ~/secc/frozen_data/mining/restat
+global tmp /a/temp/folder
+global mdata /path/to/data
+global mining /path/to/data
 global mcode .
 global PYTHONPATH ./stata-tex
 
